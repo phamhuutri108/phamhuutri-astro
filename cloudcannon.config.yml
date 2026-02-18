@@ -1,22 +1,73 @@
+timezone: Etc/UTC
+
 paths:
-  data: src/data
   static: public
   uploads: public/uploads
+
 collections_config:
-  data:
-    path: src/data
-    icon: data_usage
-    disable_url: true
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
-data_config:
-  films:
-    path: src/data/films.json
+  short_films:
+    path: src/content/short-films
+    output: false
+    name: Short Films
+    icon: movie
+    _inputs:
+      vi:
+        type: html
+        label: "Nội dung (Tiếng Việt)"
+      en:
+        type: html
+        label: "Content (English)"
+      thumbnail:
+        type: image
+        label: Thumbnail
+
   commercials:
-    path: src/data/commercials.json
+    path: src/content/commercials
+    output: false
+    name: Commercials
+    icon: videocam
+    _inputs:
+      vi:
+        type: html
+        label: "Nội dung (Tiếng Việt)"
+      en:
+        type: html
+        label: "Content (English)"
+      thumbnail:
+        type: image
+        label: Thumbnail
+
   others:
-    path: src/data/others.json
+    path: src/content/others
+    output: false
+    name: Others
+    icon: folder
+    _inputs:
+      vi:
+        type: html
+        label: "Nội dung (Tiếng Việt)"
+      en:
+        type: html
+        label: "Content (English)"
+      thumbnail:
+        type: image
+        label: Thumbnail
+
   writings:
-    path: src/data/writings.json
-timezone: Etc/UTC
+    path: src/content/writings
+    output: false
+    name: Writings
+    icon: edit
+    _inputs:
+      date:
+        type: text
+        label: "Ngày (dd/mm/yyyy)"
+      location:
+        type: text
+        label: "Địa điểm"
+      vi:
+        type: html
+        label: "Nội dung (Tiếng Việt)"
+      en:
+        type: html
+        label: "Content (English)"

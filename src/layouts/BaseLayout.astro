@@ -1,9 +1,35 @@
 ---
 import Lightbox from '../components/Lightbox.astro';
-import filmsData from '../data/films.json';
-import commercialData from '../data/commercials.json';
-import othersData from '../data/others.json';
-import writingData from '../data/writings.json';
+
+// Đọc từng file riêng → CloudCannon quản lý từng project một
+const filmsRaw = import.meta.glob('../content/short-films/*.json', { eager: true });
+const commercialsRaw = import.meta.glob('../content/commercials/*.json', { eager: true });
+const othersRaw = import.meta.glob('../content/others/*.json', { eager: true });
+const writingsRaw = import.meta.glob('../content/writings/*.json', { eager: true });
+
+// Tái tạo object/array giống cấu trúc cũ để JS không cần thay đổi
+const filmsData = Object.fromEntries(
+  Object.entries(filmsRaw).map(([path, mod]: [string, any]) => {
+    const slug = path.split('/').pop()!.replace('.json', '');
+    return [slug, mod.default ?? mod];
+  })
+);
+
+const commercialData = Object.fromEntries(
+  Object.entries(commercialsRaw).map(([path, mod]: [string, any]) => {
+    const slug = path.split('/').pop()!.replace('.json', '');
+    return [slug, mod.default ?? mod];
+  })
+);
+
+const othersData = Object.fromEntries(
+  Object.entries(othersRaw).map(([path, mod]: [string, any]) => {
+    const slug = path.split('/').pop()!.replace('.json', '');
+    return [slug, mod.default ?? mod];
+  })
+);
+
+const writingData = Object.values(writingsRaw).map((mod: any) => mod.default ?? mod);
 ---
 <!DOCTYPE html>
 <html lang="vi">
