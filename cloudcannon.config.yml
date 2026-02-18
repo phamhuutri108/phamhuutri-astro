@@ -10,13 +10,6 @@ collections_config:
     disable_add: false
     disable_add_folder: false
     disable_file_actions: false
-  pages:
-    path: src/pages
-    icon: wysiwyg
-    disable_url: false
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
 data_config:
   films:
     path: src/data/films.json
