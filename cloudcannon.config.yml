@@ -8,7 +8,8 @@ collections_config:
 
   # ──────────────────────────────────────────────
   # SHORT FILMS
-  # Cấu trúc: info, trailer_url, logline, statement, soundtrack_url, crew
+  # Cấu trúc: genre_vi, genre_en, year, duration, awards_vi, awards_en (flat text)
+  # + trailer_url, logline, statement, soundtrack_url, crew (object html)
   # ──────────────────────────────────────────────
   short_films:
     path: src/content/short-films
@@ -28,19 +29,29 @@ collections_config:
       thumbnail:
         type: image
         label: Thumbnail
-      info:
-        type: object
-        label: "Thông tin phim / Film Info"
-      info[vi]:
-        type: html
-        label: "Thông tin (Tiếng Việt)"
-        options:
-          allow_custom_markup: true
-      info[en]:
-        type: html
-        label: "Info (English)"
-        options:
-          allow_custom_markup: true
+      genre_vi:
+        type: text
+        label: "Thể loại (Tiếng Việt)"
+        comment: "Vd: Phim ngắn / Tâm lý"
+      genre_en:
+        type: text
+        label: "Genre (English)"
+        comment: "e.g. Short fiction / Drama"
+      year:
+        type: text
+        label: "Năm / Year"
+      duration:
+        type: text
+        label: "Thời lượng / Duration"
+        comment: "Vd: 19:23"
+      awards_vi:
+        type: textarea
+        label: "Giải thưởng (Tiếng Việt)"
+        comment: "Mỗi giải thưởng trên một dòng riêng"
+      awards_en:
+        type: textarea
+        label: "Awards (English)"
+        comment: "One award per line"
       trailer_url:
         type: text
         label: "Trailer URL (YouTube Embed)"
@@ -91,7 +102,8 @@ collections_config:
 
   # ──────────────────────────────────────────────
   # COMMERCIALS
-  # Cấu trúc: info, video_url, description
+  # Cấu trúc: brand_vi, brand_en (html - hỗ trợ link), year, country, role_vi, role_en (text)
+  # + video_url, description (object html)
   # ──────────────────────────────────────────────
   commercials:
     path: src/content/commercials
@@ -111,19 +123,30 @@ collections_config:
       thumbnail:
         type: image
         label: Thumbnail
-      info:
-        type: object
-        label: "Thông tin / Info"
-      info[vi]:
+      brand_vi:
         type: html
-        label: "Thông tin (Tiếng Việt)"
+        label: "Thương hiệu (Tiếng Việt)"
+        comment: "Tên thương hiệu, có thể thêm link qua nút Link trong thanh công cụ"
         options:
           allow_custom_markup: true
-      info[en]:
+      brand_en:
         type: html
-        label: "Info (English)"
+        label: "Brand (English)"
+        comment: "Brand name, can add link via the Link button in the toolbar"
         options:
           allow_custom_markup: true
+      year:
+        type: text
+        label: "Năm / Year"
+      country:
+        type: text
+        label: "Quốc gia / Country"
+      role_vi:
+        type: text
+        label: "Vai trò (Tiếng Việt)"
+      role_en:
+        type: text
+        label: "Role (English)"
       video_url:
         type: text
         label: "Video URL (YouTube Embed)"

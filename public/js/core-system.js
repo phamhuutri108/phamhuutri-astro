@@ -35,13 +35,54 @@ function renderSectionContent(id) {
     // 1. Tạo nội dung chính (Text & Video)
     let bodyHtml = '';
 
-    if (item.info || item.logline || item.description) {
-        // ── CẤU TRÚC MỚI: Short Films / Commercials ──
+    const isShortFilm = item.genre_vi !== undefined || item.genre_en !== undefined;
+    const isCommercial = item.brand_vi !== undefined || item.brand_en !== undefined;
 
-        // Info paragraph
-        if (item.info) {
-            bodyHtml += `<div class="content-vi">${item.info.vi || ''}</div>
-            <div class="content-en">${item.info.en || ''}</div>`;
+    if (isShortFilm || isCommercial) {
+        // ── CẤU TRÚC MỚI: Short Films (flat genre/year/duration/awards) ──
+        if (isShortFilm) {
+            let infoVi = '<p>';
+            if (item.genre_vi) infoVi += `<b>Thể loại:</b> ${item.genre_vi}<br>`;
+            if (item.year)     infoVi += `<b>Năm:</b> ${item.year}<br>`;
+            if (item.duration) infoVi += `<b>Thời lượng:</b> ${item.duration}<br>`;
+            if (item.awards_vi) {
+                const lines = item.awards_vi.split('\n').filter(l => l.trim());
+                infoVi += `<b>Giải thưởng:</b> ${lines.join('<br>')}`;
+            }
+            infoVi += '</p>';
+
+            let infoEn = '<p>';
+            if (item.genre_en) infoEn += `<b>Genre:</b> ${item.genre_en}<br>`;
+            if (item.year)     infoEn += `<b>Year:</b> ${item.year}<br>`;
+            if (item.duration) infoEn += `<b>Duration:</b> ${item.duration}<br>`;
+            if (item.awards_en) {
+                const lines = item.awards_en.split('\n').filter(l => l.trim());
+                infoEn += `<b>Awards:</b> ${lines.join('<br>')}`;
+            }
+            infoEn += '</p>';
+
+            bodyHtml += `<div class="content-vi">${infoVi}</div>
+            <div class="content-en">${infoEn}</div>`;
+        }
+
+        // ── CẤU TRÚC MỚI: Commercials (flat brand/year/country/role) ──
+        if (isCommercial) {
+            let infoVi = '<p>';
+            if (item.brand_vi)  infoVi += `<b>Thương hiệu:</b> ${item.brand_vi}<br>`;
+            if (item.year)      infoVi += `<b>Năm:</b> ${item.year}<br>`;
+            if (item.country)   infoVi += `<b>Quốc gia:</b> ${item.country}<br>`;
+            if (item.role_vi)   infoVi += `<b>Vai trò:</b> ${item.role_vi}`;
+            infoVi += '</p>';
+
+            let infoEn = '<p>';
+            if (item.brand_en)  infoEn += `<b>Brand:</b> ${item.brand_en}<br>`;
+            if (item.year)      infoEn += `<b>Year:</b> ${item.year}<br>`;
+            if (item.country)   infoEn += `<b>Country:</b> ${item.country}<br>`;
+            if (item.role_en)   infoEn += `<b>Role:</b> ${item.role_en}`;
+            infoEn += '</p>';
+
+            bodyHtml += `<div class="content-vi">${infoVi}</div>
+            <div class="content-en">${infoEn}</div>`;
         }
 
         // Trailer / Video embed

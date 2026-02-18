@@ -4,10 +4,12 @@
     "en": "Expectant Mothers Always Decide"
   },
   "thumbnail": "https://ik.imagekit.io/phamhuutri108/comm/benh-vien-phuong-nam-thumbnail.jpg",
-  "info": {
-    "vi": "<p>\n                <b>Brand:</b> Bệnh Viện Phương Nam<br>\n                <b>Title:</b> Mẹ Bầu Chốt Luôn<br>\n                <b>Year:</b> 2026<br>\n                <b>Country:</b> Vietnam<br>\n                <b>Role:</b> Trợ lý cá nhân Đạo diễn\n            </p>",
-    "en": "<p>\n                <b>Brand:</b> Phương Nam Hospital<br>\n                <b>Title:</b> Expectant Mothers Always Decide<br>\n                <b>Year:</b> 2026<br>\n                <b>Country:</b> Vietnam<br>\n                <b>Role:</b> Director's Assistant\n            </p>"
-  },
+  "brand_vi": "Bệnh Viện Phương Nam",
+  "brand_en": "Phương Nam Hospital",
+  "year": "2026",
+  "country": "Vietnam",
+  "role_vi": "Trợ lý cá nhân Đạo diễn",
+  "role_en": "Director's Assistant",
   "description": {
     "vi": "<p>Trợ lý cá nhân cho Đạo diễn, hỗ trợ đạo diễn phát triển ý tưởng và chuẩn bị nội dung sáng tạo cho dự án để thuyết trình với khách hàng. Tham gia chỉnh sửa nội dung sáng tạo phù hợp với yêu cầu của khách hàng về nội dung và tầm nhìn sáng của đạo diễn.</p>",
     "en": "<p>Personal Assistant to the Director, supporting the director in developing ideas and preparing creative content for the project to present to clients. Participated in editing creative content according to client requirements regarding content and the director's vision.</p>"

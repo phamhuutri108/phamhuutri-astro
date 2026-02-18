@@ -4,13 +4,15 @@
     "en": "\"The Ghost\" Wants To Live"
   },
   "thumbnail": "https://assets.phamhuutri.com/assets/short-films/CMMS/CMMS-thumbnail.jpeg?v=2",
-  "info": {
-    "vi": "<p>\n            <b>Thể loại:</b> Phim tài liệu ngắn / Tương tác<br>\n            <b>Năm:</b> 2022<br>\n            <b>Thời lượng:</b> 22:02<br>\n            <b>Giải thưởng & Quỹ hỗ trợ:</b><br>\n            Giải Ba, Liên hoan Phim ngắn TP.HCM (2023)<br>\n            Quỹ Sáng tạo trẻ, Hội Điện ảnh TP.HCM (2022)\n            </p>",
-    "en": "<p>\n            <b>Genre:</b> Documentary short / Interactive<br>\n            <b>Year:</b> 2022<br>\n            <b>Duration:</b> 22:02<br>\n            <b>Award & Fund:</b><br>\n            Third Prize, HCMC Short Film Festival (2023)<br>\n            Young Creativity Fund, HCMC Cinema Association (2022)\n            </p>"
-  },
+  "genre_vi": "Phim tài liệu ngắn / Tương tác",
+  "genre_en": "Documentary short / Interactive",
+  "year": "2022",
+  "duration": "22:02",
+  "awards_vi": "Giải Ba, Liên hoan Phim ngắn TP.HCM (2023)\nQuỹ Sáng tạo trẻ, Hội Điện ảnh TP.HCM (2022)",
+  "awards_en": "Third Prize, HCMC Short Film Festival (2023)\nYoung Creativity Fund, HCMC Cinema Association (2022)",
   "trailer_url": "https://www.youtube.com/embed/ijfYdCNMRK8",
   "crew": {
-    "vi": "<ul style=\"list-style: none; padding-left: 10px; font-size: 12px; line-height: 1.8;\">\n                <li><b>Nhân vật:</b> Nguyễn Lâm Anh</li>\n                <li><b>Đạo diễn và Kịch bản:</b> Phạm Hữu Trí</li>\n                <li><b>Cố vấn nghệ thuật:</b> NSND. Đạo diễn Đào Bá Sơn</li>\n                <li><b>Quay phim:</b> Võ Nguyễn Đạt Kha, Phan Quốc Anh, Phan Thiện Anh, Nguyễn Đan Thọ</li>\n                <li><b>Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Bài hát trong phim:</b> Một Ngày - Kien, Con Dế Mèn Hát Vào Mùa Hè - Tung</li>\n                <li><b>Đoạn phim được sử dụng:</b> Rừng Na Uy - Directed by Trần Anh Hùng</li>\n            </ul>",
-    "en": "<ul style=\"list-style: none; padding-left: 10px; font-size: 12px; line-height: 1.8;\">\n                <li><b>Character:</b> Nguyễn Lâm Anh</li>\n                <li><b>Director & Screenwriter:</b> Phạm Hữu Trí</li>\n                <li><b>Director's Consultant:</b> NSND. Đào Bá Sơn</li>\n                <li><b>Camera Operator:</b> Võ Nguyễn Đạt Kha, Phan Quốc Anh, Phan Thiện Anh, Nguyễn Đan Thọ</li>\n                <li><b>Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Songs sung by Character:</b> Một Ngày - Kien, Con Dế Mèn Hát Vào Mùa Hè - Tung</li>\n                <li><b>Film footages used:</b> Rừng Na Uy - Directed by Trần Anh Hùng</li>\n            </ul>"
+    "vi": "<ul class=\"crew-text-list\">\n                <li><b>Nhân vật:</b> Nguyễn Lâm Anh</li>\n                <li><b>Đạo diễn và Kịch bản:</b> Phạm Hữu Trí</li>\n                <li><b>Cố vấn nghệ thuật:</b> NSND. Đạo diễn Đào Bá Sơn</li>\n                <li><b>Quay phim:</b> Võ Nguyễn Đạt Kha, Phan Quốc Anh, Phan Thiện Anh, Nguyễn Đan Thọ</li>\n                <li><b>Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Bài hát trong phim:</b> Một Ngày - Kien, Con Dế Mèn Hát Vào Mùa Hè - Tung</li>\n                <li><b>Đoạn phim được sử dụng:</b> Rừng Na Uy - Directed by Trần Anh Hùng</li>\n            </ul>",
+    "en": "<ul class=\"crew-text-list\">\n                <li><b>Character:</b> Nguyễn Lâm Anh</li>\n                <li><b>Director & Screenwriter:</b> Phạm Hữu Trí</li>\n                <li><b>Director's Consultant:</b> NSND. Đào Bá Sơn</li>\n                <li><b>Camera Operator:</b> Võ Nguyễn Đạt Kha, Phan Quốc Anh, Phan Thiện Anh, Nguyễn Đan Thọ</li>\n                <li><b>Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Songs sung by Character:</b> Một Ngày - Kien, Con Dế Mèn Hát Vào Mùa Hè - Tung</li>\n                <li><b>Film footages used:</b> Rừng Na Uy - Directed by Trần Anh Hùng</li>\n            </ul>"
   }
 }

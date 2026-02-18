@@ -4,13 +4,13 @@
     "en": "Cock's Cooking"
   },
   "thumbnail": "https://assets.phamhuutri.com/assets/short-films/GTNC/GTNC_thumbnail.jpeg?v=2",
-  "info": {
-    "vi": "<p><b>Thể loại:</b> Phim ngắn / Tâm lý<br>\n            <b>Năm:</b> 2023<br>\n            <b>Thời lượng:</b> 06:45</p>",
-    "en": "<p><b>Genre:</b> Short fiction / Drama<br><b>Year:</b> 2023<br><b>Duration:</b> 06:45</p>"
-  },
+  "genre_vi": "Phim ngắn / Tâm lý",
+  "genre_en": "Short fiction / Drama",
+  "year": "2023",
+  "duration": "06:45",
   "trailer_url": "https://www.youtube.com/embed/nOfecnBi0bM",
   "crew": {
-    "vi": "<ul style=\"list-style: none; padding-left: 10px; font-size: 12px; line-height: 1.8;\">\n                <li><b>Đạo diễn, Kịch bản và Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Diễn viên:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>",
-    "en": "<ul style=\"list-style: none; padding-left: 10px; font-size: 12px; line-height: 1.8;\">\n                <li><b>Director, Screenwriter & Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Cast:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>"
+    "vi": "<ul class=\"crew-text-list\">\n                <li><b>Đạo diễn, Kịch bản và Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Diễn viên:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>",
+    "en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Screenwriter & Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Cast:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>"
   }
 }

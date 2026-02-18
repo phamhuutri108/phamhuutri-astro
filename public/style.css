@@ -1632,6 +1632,15 @@ body.mode-vi .content-en {
 
 
 
+/* --- CREW TEXT LIST (danh sách văn bản ê-kíp) --- */
+
+.crew-text-list {
+    list-style: none;
+    padding-left: 10px;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
 /* --- STYLE CREW: CĂN GIỮA CHUẨN XÁC --- */
 
 .crew-scroller-container {

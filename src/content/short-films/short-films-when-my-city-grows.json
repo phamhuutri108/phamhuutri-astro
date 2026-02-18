@@ -4,13 +4,15 @@
     "en": "When My City Grows"
   },
   "thumbnail": "https://assets.phamhuutri.com/assets/short-films/KTPL/KTPL-thumbnail.jpeg?v=2",
-  "info": {
-    "vi": "<p>\n                <b>Thể loại:</b> Phim tài liệu ngắn<br>\n                <b>Năm:</b> 2020<br>\n                <b>Thời lượng:</b> 02:55<br>\n                <b>Giải thưởng:</b> Giải nhì, Le Filmmaking Camp: Spectrum, Quảng Trị\n            </p>",
-    "en": "<p>\n                <b>Genre:</b> Short documentary<br>\n                <b>Year:</b> 2020<br>\n                <b>Duration:</b> 02:55<br>\n                <b>Award:</b> Second Prize, Le Filmmaking Camp: Spectrum, Quang Tri\n            <br>"
-  },
+  "genre_vi": "Phim tài liệu ngắn",
+  "genre_en": "Short documentary",
+  "year": "2020",
+  "duration": "02:55",
+  "awards_vi": "Giải nhì, Le Filmmaking Camp: Spectrum, Quảng Trị",
+  "awards_en": "Second Prize, Le Filmmaking Camp: Spectrum, Quang Tri",
   "trailer_url": "https://www.youtube.com/embed/9qh9bCoNitI",
   "crew": {
     "vi": "",
-    "en": "<ul style=\"list-style: none; padding-left: 10px; font-size: 12px; line-height: 1.8;\">\n                <li><b>Director, Filmming and Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Screenwriter:</b> Quốc Vinh</li>\n                <li><b>Producer:</b> Hải Yến</li>\n                <li><b>Assistant Directors:</b> Việt Hà, Công Thoại</li>\n                <li><b>Script Assistants:</b> Thanh Lam, Hoa Diệu</li>\n            </ul>"
+    "en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Filmming and Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Screenwriter:</b> Quốc Vinh</li>\n                <li><b>Producer:</b> Hải Yến</li>\n                <li><b>Assistant Directors:</b> Việt Hà, Công Thoại</li>\n                <li><b>Script Assistants:</b> Thanh Lam, Hoa Diệu</li>\n            </ul>"
   }
 }

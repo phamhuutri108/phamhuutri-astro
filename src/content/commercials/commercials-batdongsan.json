@@ -4,10 +4,12 @@
     "en": "Real Estate Saigon, Why Not!"
   },
   "thumbnail": "https://assets.phamhuutri.com/assets/commercial/Batdongsan_thumbnail.gif?v=2",
-  "info": {
-    "vi": "<p>\n                <b>Thương hiệu:</b> <a href=\"https://batdongsan.com.vn\" target=\"_blank\">Batdongsan.com.vn</a><br>\n                <b>Tiêu đề:</b> Nhà thật Sài Gòn, có sao nói vậy!<br>\n                <b>Năm:</b> 2025<br>\n                <b>Quốc gia:</b> Việt Nam<br>\n                <b>Vai trò:</b> Trợ lý cá nhân Đạo diễn\n            </p>",
-    "en": "<p>\n                <b>Brand:</b> <a href=\"https://batdongsan.com.vn\" target=\"_blank\">Batdongsan.com.vn</a><br>\n                <b>Title:</b> Real Estate Saigon, Why Not!<br>\n                <b>Year:</b> 2025<br>\n                <b>Country:</b> Vietnam<br>\n                <b>Role:</b> Director's Assistant\n            </p>"
-  },
+  "brand_vi": "<a href=\"https://batdongsan.com.vn\" target=\"_blank\">Batdongsan.com.vn</a>",
+  "brand_en": "<a href=\"https://batdongsan.com.vn\" target=\"_blank\">Batdongsan.com.vn</a>",
+  "year": "2025",
+  "country": "Vietnam",
+  "role_vi": "Trợ lý cá nhân Đạo diễn",
+  "role_en": "Director's Assistant",
   "video_url": "https://www.youtube.com/embed/8nsNFWFw2tw",
   "description": {
     "vi": "<p>Trợ lý cá nhân cho Đạo diễn, hỗ trợ đạo diễn phát triển ý tưởng và chuẩn bị nội dung sáng tạo cho dự án để thuyết trình với khách hàng. Tham gia chỉnh sửa nội dung sáng tạo phù hợp với yêu cầu của khách hàng về nội dung và tầm nhìn sáng của đạo diễn.</p>",

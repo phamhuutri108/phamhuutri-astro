@@ -4,10 +4,12 @@
     "en": "Back To School"
   },
   "thumbnail": "https://assets.phamhuutri.com/assets/commercial/FPTxAMD_Thumbnail.gif?v=2",
-  "info": {
-    "vi": "<p>\n                <b>Thương hiệu:</b> <a href=\"https://fptshop.com.vn\" target=\"_blank\">FPT Shop</a> x <a href=\"https://www.amd.com/en.html\" target=\"_blank\">AMD</a><br>\n                <b>Tiêu đề:</b> Back To School<br>\n                <b>Năm:</b> 2024<br>\n                <b>Quốc gia:</b> Việt Nam<br>\n                <b>Vai trò:</b> Trợ lý Đạo diễn #1\n            </p>",
-    "en": "<p>\n                <b>Brand:</b> <a href=\"https://fptshop.com.vn\" target=\"_blank\">FPT Shop</a> x ADM<br>\n                <b>Title:</b> Back To School<br>\n                <b>Year:</b> 2024<br>\n                <b>Country:</b> Vietnam<br>\n                <b>Role:</b> 1st Assistant Director\n            </p>"
-  },
+  "brand_vi": "<a href=\"https://fptshop.com.vn\" target=\"_blank\">FPT Shop</a> x <a href=\"https://www.amd.com/en.html\" target=\"_blank\">AMD</a>",
+  "brand_en": "<a href=\"https://fptshop.com.vn\" target=\"_blank\">FPT Shop</a> x <a href=\"https://www.amd.com/en.html\" target=\"_blank\">AMD</a>",
+  "year": "2024",
+  "country": "Vietnam",
+  "role_vi": "Trợ lý Đạo diễn #1",
+  "role_en": "1st Assistant Director",
   "video_url": "https://www.youtube.com/embed/DJTxFQLngDA",
   "description": {
     "vi": "<p>Lên kế hoạch, điều phối các department hoàn thành công việc chuyên môn theo yêu cầu của dự án. Breakdown kịch bản, nắm bắt Shotlist, sắp xếp Shooting schedule, Callsheet đảm bảo đúng tiến độ quay.</p>",
