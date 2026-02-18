@@ -1,0 +1,159 @@
+---
+import Lightbox from '../components/Lightbox.astro';
+import filmsData from '../data/films.json';
+import commercialData from '../data/commercials.json';
+import othersData from '../data/others.json';
+import writingData from '../data/writings.json';
+---
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://phamhuutri.com/">
+    <title>Pham Huu Tri - Filmmaker's Portfolio</title>
+
+    <link rel="preconnect" href="https://assets.phamhuutri.com">
+    <link rel="preconnect" href="https://www.youtube.com">
+
+    <link rel="stylesheet" href="/style.css?v=5.0">
+    <link rel="icon" type="image/png" href="https://assets.phamhuutri.com/assets/home/favicon.png">
+
+    <meta name="description" content="Short Films, Commercials and Writings.">
+    <meta name="author" content="Pham Huu Tri">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://phamhuutri.com/">
+    <meta property="og:title" content="Pham Huu Tri's Portfolio">
+    <meta property="og:description" content="A human being.">
+
+    <meta property="og:image" content="https://assets.phamhuutri.com/assets/home/cover-meta.jpeg?v=2">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pham Huu Tri's Portfolio">
+    <meta name="twitter:description" content="Short Films, Commercials and Writings.">
+    <meta name="twitter:image" content="https://assets.phamhuutri.com/assets/home/cover-meta.jpeg?v=2">
+</head>
+
+<body>
+
+<div class="wrapper">
+    <aside class="sidebar">
+
+        <div class="lang-switch">
+    <span class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</span>
+    <span class="separator">-</span>
+    <span class="lang-btn" onclick="setLanguage('vi')" id="btn-vi">VI</span>
+</div>
+<div class="site-logo">
+    </div>
+
+        <div class="site-logo">
+            <a href="javascript:void(0)" onclick="showPage('home')">
+                <img src="https://assets.phamhuutri.com/assets/home/tri-avatar.jpeg?v=2" alt="Pham Huu Tri">
+            </a>
+        </div>
+
+        <ul class="main-menu">
+    <li>
+        <a href="javascript:void(0)" onclick="showPage('home')" id="link-home" class="active-link">
+            <span class="content-en">Home</span>
+            <span class="content-vi">Trang Chủ</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" onclick="showPage('about')" id="link-about">
+            <span class="content-en">About</span>
+            <span class="content-vi">Về Tôi</span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript:void(0)" onclick="showPage('contact')" id="link-contact">
+            <span class="content-en">Contact</span>
+            <span class="content-vi">Liên Hệ</span>
+        </a>
+    </li>
+</ul>
+
+        <div class="category-group" id="group-short-films">
+        <h4>
+            <a href="javascript:void(0)" onclick="showPage('cat-short-films', 'group-short-films')" id="link-cat-short-films">
+                <span class="content-en">Short Films</span>
+                <span class="content-vi">Phim Ngắn</span>
+            </a>
+        </h4>
+        <ul class="category-list" id="sidebar-short-films-list"></ul>
+    </div>
+
+    <div class="category-group" id="group-commercials">
+        <h4>
+            <a href="javascript:void(0)" onclick="showPage('cat-commercials', 'group-commercials')" id="link-cat-commercials">
+                <span class="content-en">Commercials</span>
+                <span class="content-vi">Quảng Cáo</span>
+            </a>
+        </h4>
+        <ul class="category-list" id="sidebar-commercials-list"></ul>
+    </div>
+
+    <div class="category-group" id="group-others">
+        <h4>
+            <a href="javascript:void(0)" onclick="showPage('cat-others', 'group-others')" id="link-cat-others">
+                <span class="content-en">Others</span>
+                <span class="content-vi">Dự Án Khác</span>
+            </a>
+        </h4>
+        <ul class="category-list" id="sidebar-others-list"></ul>
+    </div>
+
+    <div class="category-group" id="group-writings">
+        <h4>
+            <a href="javascript:void(0)" onclick="showPage('cat-writings', 'group-writings')" id="link-cat-writings">
+                <span class="content-en">Writings</span>
+                <span class="content-vi">Viết</span>
+            </a>
+        </h4>
+        <ul class="category-list" id="sidebar-writings-list"></ul>
+    </div>
+
+        <div class="copyright">
+            <p>&copy; 2026 Pham Huu Tri.</p>
+        </div>
+    </aside>
+
+    <main class="content">
+        <slot />
+    </main>
+</div>
+<Lightbox />
+
+<!-- 1. Data inject từ JSON (CloudCannon-friendly) -->
+<script is:inline define:vars={{ filmsData, commercialData, othersData, writingData }}>
+  window.filmsData = filmsData;
+  window.commercialData = commercialData;
+  window.othersData = othersData;
+  window.writingData = writingData;
+</script>
+
+<!-- 2. Core system (SPA routing - phụ thuộc data) -->
+<script is:inline src="/js/core-system.js"></script>
+
+<!-- 3. Language (độc lập) -->
+<script is:inline src="/js/language.js"></script>
+
+<!-- 4. Feature modules -->
+<script is:inline src="/js/home-chaos.js"></script>
+<script is:inline src="/js/resume-chase.js"></script>
+<script is:inline src="/js/contact-music.js"></script>
+<script is:inline src="/js/lightbox.js"></script>
+<script is:inline src="/js/writings-system.js"></script>
+<script is:inline src="/js/writing-music.js"></script>
+<script is:inline src="/js/text-size.js"></script>
+<script is:inline src="/js/content-protection.js"></script>
+<script is:inline src="/js/google-sheets.js"></script>
+<script is:inline src="/js/crew-system.js"></script>
+<script is:inline src="/js/hash-link.js"></script>
+
+</body>
+</html>

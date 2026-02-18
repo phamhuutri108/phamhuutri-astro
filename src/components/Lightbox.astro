@@ -1,0 +1,17 @@
+---
+---
+<div id="lightbox-overlay" class="lightbox-overlay" onclick="closeLightbox(event)">
+    <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+
+    <button id="lb-prev" class="lb-nav-btn" onclick="changeLbSlide(-1, event)">&#10094;</button>
+
+    <div class="lb-content-wrapper">
+        <img id="lightbox-img" src="" onclick="event.stopPropagation()">
+        <div id="lb-caption" class="lb-caption">
+            <h3 id="lb-name">Name</h3>
+            <p id="lb-role">Role</p>
+        </div>
+    </div>
+
+    <button id="lb-next" class="lb-nav-btn" onclick="changeLbSlide(1, event)">&#10095;</button>
+</div>

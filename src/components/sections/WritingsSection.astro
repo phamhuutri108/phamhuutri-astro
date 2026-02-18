@@ -1,0 +1,90 @@
+---
+---
+<div id="cat-writings" class="page-section">
+    <div class="writings-top-area">
+
+        <div class="writing-control-wrapper">
+            <h2 class="page-title blink-title" id="writing-main-title" onclick="toggleWritingMusic()">
+                <span class="content-en">Writings</span>
+                <span class="content-vi">Viết</span>
+            </h2>
+
+            <div id="writing-hint" class="writing-hint-text">
+                <span class="content-en">Click to open</span>
+                <span class="content-vi">Bấm để mở</span>
+            </div>
+
+            <div id="writing-player" class="writing-player-panel">
+                <div class="player-compact-view">
+                    <div class="track-info">
+                        <span id="wp-song-title" class="wp-title">Select Album</span>
+                        <span id="wp-artist-name" class="wp-artist">Lo-fi / Ambient</span>
+                    </div>
+
+                    <div class="track-controls">
+                        <button onclick="wpPrev()"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg></button>
+                        <button onclick="wpTogglePlay()" id="wp-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+                        <button onclick="wpNext()"><svg viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg></button>
+                        <button onclick="wpToggleExpand()" class="expand-btn" id="wp-expand-btn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+
+                <div class="player-playlist-view" id="wp-playlist">
+                    </div>
+            </div>
+        </div>
+
+        <div id="writings-list-container"></div>
+    </div>
+
+    <div id="writings-detail-view" style="display: none;">
+
+        <div id="writing-tools-wrapper">
+
+    <div class="desktop-text-tools">
+        <button class="dt-btn" onclick="adjustWritingSize(1)" title="Tăng cỡ chữ">
+            <span class="font-georgia">A<sup style="font-size: 11px;">+</sup></span>
+        </button>
+        <button class="dt-btn" onclick="adjustWritingSize(-1)" title="Giảm cỡ chữ">
+            <span class="font-georgia">A<sup style="font-size: 11px;">-</sup></span>
+        </button>
+    </div>
+
+    <div class="mobile-text-tools" id="mobile-text-tools">
+        <button class="mt-toggle-btn" onclick="toggleMobileMenu()">
+            <span style="font-family: 'Georgia', serif; font-size: 18px; font-weight: 700;">A</span>
+            <span style="font-family: 'Georgia', serif; font-size: 13px; font-weight: 400; margin-left: 2px;">A</span>
+        </button>
+
+        <div class="mt-dropdown">
+            <button class="mt-action-btn" onclick="adjustWritingSize(1)">
+                <span style="font-family: sans-serif; font-size: 18px; font-weight: 300;">+</span>
+            </button>
+            <button class="mt-action-btn" onclick="adjustWritingSize(-1)">
+                <span style="font-family: sans-serif; font-size: 22px; font-weight: 300;">-</span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+        <div style="margin-bottom: 20px;">
+            <a href="javascript:void(0)" onclick="closeWritingDetail()"
+               style="font-size: 26px; text-decoration: none; color: #999; transition: all 0.2s; display: inline-block;"
+               title="Back / Quay lại">
+                &larr;
+            </a>
+        </div>
+        <h2 class="page-title" id="detail-title" style="text-align: left;"></h2>
+        <p style="font-size:13px; color:#666; margin-bottom:30px; font-style: italic; text-align: left;" id="detail-meta"></p>
+        <div class="essay-content" id="detail-content" style="max-width: 100%; text-align: justify;"></div>
+        <div style="height: 100px;"></div>
+    </div>
+
+</div>
+
+<audio id="writing-audio-source" preload="none"></audio>

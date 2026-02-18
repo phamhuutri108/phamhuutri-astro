@@ -1,0 +1,15 @@
+source: ''
+paths:
+  data: src/data
+  static: public
+  uploads: public/uploads
+
+data_config:
+  films:
+    path: src/data/films.json
+  commercials:
+    path: src/data/commercials.json
+  others:
+    path: src/data/others.json
+  writings:
+    path: src/data/writings.json

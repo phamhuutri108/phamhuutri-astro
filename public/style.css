@@ -1,0 +1,1910 @@
+/* --- style.css --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 11px; 
+    color: #111;
+    background-color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+
+    /* --- THÊM ĐOẠN NÀY ĐỂ CHẶN BÔI ĐEN --- */
+    -webkit-user-select: none; /* Safari / Chrome */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE / Edge */
+    user-select: none;         /* Chuẩn chung */
+    -webkit-touch-callout: none; /* Chặn menu giữ lì trên iOS */
+}
+
+
+a { text-decoration: none; color: #000; transition: all 0.2s; }
+a:hover { color: #666; text-decoration: none; } /* Bỏ gạch chân khi hover cho sạch */
+
+/* Brand link styling */
+a.brand-link {color: #111; transition: all 0.2s;}
+a:hover {color: #0033cc !important;}
+
+
+
+/* BỐ CỤC */
+.wrapper { display: flex; min-height: 100vh; }
+
+/* --- SIDEBAR --- */
+.sidebar {
+    width: 260px;
+    padding: 30px 30px 40px 30px;
+    border-right: 1px solid #eee;
+    flex-shrink: 0;
+    position: sticky; 
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: #fff;
+    z-index: 10;
+}
+
+.site-logo { margin-bottom: 30px; text-align: center; }
+.site-logo a { display: block; }
+.site-logo img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Menu Chính */
+.main-menu { list-style: none; margin-bottom: 40px; }
+.main-menu li { margin-bottom: 10px; }
+.main-menu a { 
+    font-size: 13px; 
+    font-weight: 700; 
+    display: block; 
+    cursor: pointer;
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+}
+
+/* --- QUAN TRỌNG: Thay đổi style Active Link --- */
+/* Không gạch chân, đổi màu xanh */
+.main-menu a.active-link,
+.category-section h4 a.active-link, /* Áp dụng cho cả tiêu đề danh mục */
+.category-list a.active-link {      /* Áp dụng cho cả link con */
+    text-decoration: none;
+    color: #0033cc !important; /* Màu xanh dương (dùng !important để chắc chắn ăn màu) */
+}
+
+
+
+
+
+
+/* --- CẬP NHẬT GIAO DIỆN DANH MỤC (FIX SPACING) --- */
+
+/* 1. Khung bao quanh mỗi mục (Short Films, Commercials...) */
+.category-group {
+    margin-bottom: 15px; /* ĐÂY LÀ DÒNG GIÚP CÁC MỤC CÁCH XA NHAU */
+    display: block;
+}
+
+/* 2. Tiêu đề (h4) */
+.category-group h4 {
+    margin: 0; /* Reset margin */
+    line-height: 1.6;
+}
+
+/* 3. Link tiêu đề (Chữ Short Films, Commercials...) */
+.category-group h4 a {
+    font-size: 13px; 
+    font-weight: 700; /* In đậm giống Home/About */
+    color: #111; 
+    text-transform: capitalize;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.category-group h4 a:hover {
+    color: #0033cc; 
+}
+
+.category-group h4 a.active-link {
+    color: #0033cc !important;
+}
+
+/* 4. Danh sách con (Tên phim bên trong) */
+.category-list {
+    display: none; /* Mặc định ẩn */
+    padding-left: 15px; /* Thụt vào đầu dòng */
+    list-style: none;
+    margin-top: 5px; /* Cách tiêu đề một chút */
+    animation: fadeIn 0.3s ease;
+}
+
+.category-list li { 
+    margin-bottom: 8px; /* Khoảng cách giữa các phim con */
+    font-size: 11px; 
+}
+
+.category-list li a { 
+    color: #666; /* Màu xám nhạt */
+    transition: color 0.2s;
+}
+
+/* Hiệu ứng Hover và Active cho danh sách con */
+.category-list a:hover { color: #000; }
+.category-list a.active-link { color: #0033cc !important; font-weight: bold; }
+
+/* 5. LOGIC ẨN HIỆN (HOVER & CLICK) */
+.category-group:hover .category-list {
+    display: block;
+}
+.category-group.is-open .category-list {
+    display: block !important;
+}
+
+
+
+
+
+
+/* --- Thay thế từ dòng 104 cũ --- */
+
+/* 1. Mặc định ẩn danh sách con */
+.category-list {
+    display: none; /* QUAN TRỌNG: Để ẩn danh sách */
+    padding-left: 20px;
+    list-style: none;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* 2. HIỆU ỨNG HOVER: Rê chuột vào nhóm thì hiện ra */
+.category-group:hover .category-list {
+    display: block;
+}
+
+/* 3. HIỆU ỨNG CLICK (STAY): Khi được thêm class .is-open thì hiện luôn */
+/* 3. HIỆU ỨNG CLICK (STAY): Khi được thêm class .is-open thì hiện luôn */
+.category-group.is-open .category-list {
+    display: block !important; /* Thêm !important để nó không bị ẩn khi chuột rời đi */
+}
+
+/* Link con khi được chọn */
+.category-list a.active-link {
+    color: #0033cc !important; /* Vẫn là màu xanh chủ đạo khi chọn */
+    font-weight: bold; /* Thêm in đậm nhẹ khi được chọn để dễ nhận biết */
+}
+
+/* Footer */
+.copyright {
+    margin-top: 50px;
+    font-size: 10px;
+    color: #aaa;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+/* CONTENT */
+.content { 
+    flex-grow: 1; 
+    padding: 40px 60px; /* Tăng padding một chút cho thoáng */
+    width: auto; /* Chiếm hết không gian còn lại */
+    /* Xóa dòng max-width cũ đi */
+    min-width: 0; 
+    max-width: 100%;
+}
+
+.page-section { 
+    display: none; 
+    animation: fadeIn 0.6s ease;
+    
+    /* CẤU HÌNH MỚI: CĂN TRÁI */
+    max-width: 1300px; /* Cho phép rộng hơn để xem ảnh/lưới đẹp hơn */
+    margin: 0; /* Xóa auto để nó dính về phía Sidebar */
+    width: 100%;
+}
+
+/* 2. QUAN TRỌNG: Dòng này giúp trang hiện ra khi được chọn */
+/* (Có thể bạn đã xóa mất dòng này) */
+.page-section.active-section { 
+    display: block; 
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-title {
+    font-size: 18px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    font-style: normal;
+   /* border-bottom: 1px solid #eee; */
+   /* padding-bottom: 10px; */
+}
+
+.about-text {
+    max-width: 800px; /* Giới hạn khối văn bản lại cho gọn gàng, dễ đọc */
+}
+
+.about-text p { 
+    margin-bottom: 15px; 
+    text-align: justify;
+    line-height: 1.7; /* Tăng khoảng cách dòng một chút cho sang */
+}
+.about-text h3 { 
+    font-size: 13px; margin-top: 25px; margin-bottom: 8px; 
+    text-transform: capitalize; letter-spacing: 1px; font-weight: bold;
+   /* border-bottom: 1px solid #f9f9f9; */
+   
+  /* padding-bottom: 2px; display: inline-block; */
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+.gallery-item img {
+    width: 100%; height: auto; display: block;
+    filter: grayscale(100%); transition: filter 0.3s;
+}
+.gallery-item:hover img { filter: grayscale(0%); }
+
+
+/* --- CẬP NHẬT RIÊNG CHO TRANG HOME (CHAOS EFFECT) --- */
+#home.active-section {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full màn hình để chữ bay thoải mái */
+    position: relative; /* Quan trọng: làm mốc toạ độ cho chữ bay */
+    overflow: hidden;   /* Ẩn những chữ bay ra ngoài khung */
+    background-color: #fff; /* Đảm bảo nền sạch */
+}
+
+/* Class cho ảnh trung tâm để nó nổi lên trên */
+.home-center-img {
+    width: 200px; 
+    height: auto; 
+    display: block; 
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    z-index: 10; /* Nổi lên trên chữ */
+    position: relative; 
+    background: #fff; /* Tránh bị chữ xuyên thấu nếu ảnh png */
+}
+
+/* Class cho các từ ngữ bay lượn */
+.chaos-word {
+    position: absolute;
+    white-space: nowrap;
+    z-index: 9; /* Nằm dưới ảnh */
+    opacity: 0.5;
+    color: #111;
+    
+    /* --- CÁC DÒNG QUAN TRỌNG ĐỂ TƯƠNG TÁC ĐƯỢC --- */
+    pointer-events: auto;      /* Cho phép chạm vào */
+    user-select: none;         /* Cấm bôi đen (Chuẩn) */
+    -webkit-user-select: none; /* Cấm bôi đen (Safari/Chrome) */
+    touch-action: none;        /* Cấm trình duyệt cuộn trang khi chạm vào chữ */
+    /* --------------------------------------------- */
+    
+    will-change: transform; 
+    font-family: 'Georgia', serif;
+}
+
+/* --- THÊM VÀO CUỐI STYLE.CSS --- */
+
+#about {
+    position: relative;
+    min-height: 600px; 
+    overflow: hidden; /* Quan trọng để không bay ra ngoài */
+}
+
+/* TRẠNG THÁI 1: Nằm im ban đầu (VÀ NHẤP NHÁY) */
+#wandering-resume {
+    position: relative;
+    display: inline-block;
+    font-size: 16px; 
+    font-weight: bold;
+    color: #111;
+    text-transform: none;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 50;
+    
+    /* Hiệu ứng chuyển màu */
+    transition: color 0.3s, opacity 0.3s; 
+    
+    /* --- THÊM DÒNG NÀY ĐỂ NHẤP NHÁY --- */
+    /* Dùng lại animation pulseText có sẵn (2s giống mobile) */
+    animation: pulseText 2s infinite; 
+}
+
+/* TRẠNG THÁI 2: Khi bắt đầu bay (JS thêm class này) */
+#wandering-resume.flying {
+    position: absolute; 
+    transition: top 1.3s ease-in-out, left 1.3s ease-in-out, color 0.2s;
+    /* Animation nhấp nháy vẫn giữ nguyên từ ID gốc nên không cần thêm gì ở đây */
+}
+
+/* TRẠNG THÁI 3: Khi bỏ chạy (Evasion) */
+#wandering-resume.evading {
+    transition: top 0.2s ease-out, left 0.2s ease-out !important;
+}
+
+/* Đổi màu khi hover (KHI BẮT ĐƯỢC) */
+#wandering-resume:hover {
+    color: #0033cc;   /* Vẫn hiện màu xanh như cũ */
+    animation: none;  /* Tạm dừng nhấp nháy để chữ hiện rõ màu xanh cho người dùng đọc */
+    opacity: 1;       /* Đảm bảo rõ nét 100% */
+}
+
+/* --- CHUYỂN NGÔN NGỮ --- */
+
+/* 1. Trang trí nút chuyển ngữ */
+.lang-switch {
+    text-align: center;
+    margin-bottom: 10px; 
+    font-size: 10px; 
+    font-weight: bold;
+    /* Đổi màu dấu gạch ngang sang đen cho đồng bộ */
+    color: #111; 
+    letter-spacing: 2px;
+    line-height: 1;
+}
+
+.lang-btn {
+    cursor: pointer;
+    transition: color 0.2s;
+    padding: 0 2px;
+    
+    /* TRẠNG THÁI BÌNH THƯỜNG (Chưa chọn): Màu đen giống văn bản */
+    color: #111; 
+}
+
+/* TRẠNG THÁI HOVER: Rê chuột vào thì đổi xanh */
+.lang-btn:hover {
+    color: #0033cc;
+}
+
+/* TRẠNG THÁI ACTIVE: Khi đã chọn thì GIỮ NGUYÊN MÀU XANH */
+.lang-btn.active {
+    color: #0033cc !important; /* Màu xanh chủ đạo */
+    font-weight: 900; /* Đậm hơn chút để khẳng định đang chọn */
+}
+
+.separator {
+    color: #111; /* Gạch nối cũng màu đen cho giống text */
+    font-size: 9px;
+    vertical-align: middle;
+}
+
+/* 2. QUY TẮC ẨN HIỆN NGÔN NGỮ (QUAN TRỌNG) */
+
+/* Nếu Body đang ở chế độ Tiếng Anh -> Ẩn mọi thứ là Tiếng Việt */
+body.mode-en .content-vi {
+    display: none !important;
+}
+
+/* Nếu Body đang ở chế độ Tiếng Việt -> Ẩn mọi thứ là Tiếng Anh */
+body.mode-vi .content-en {
+    display: none !important;
+}
+
+/* --- GALLERY WALL STYLE (BTS) --- */
+.gallery-wall {
+    display: grid;
+    /* Chia làm 4 cột bằng nhau */
+    grid-template-columns: repeat(4, 1fr); 
+    /* Tự động lấp đầy các khoảng trống */
+    grid-auto-flow: dense; 
+    gap: 10px; /* Khoảng cách giữa các ảnh */
+    margin-top: 30px;
+}
+
+.gallery-wall img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cắt ảnh để vừa khít khung mà không bị méo */
+    border-radius: 2px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.gallery-wall img:hover {
+    transform: scale(1.02); /* Phóng to nhẹ khi rê chuột */
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CÁC CLASS ĐỂ CHỈNH KÍCH THƯỚC TỪNG ẢNH */
+
+/* 1. Ảnh khổ Ngang (chiếm 2 cột) */
+.gallery-wall .wide {
+    grid-column: span 2; 
+}
+
+/* 2. Ảnh khổ Dọc (chiếm 2 hàng) */
+.gallery-wall .tall {
+    grid-row: span 2; 
+}
+
+/* 3. Ảnh To bự (chiếm 2 cột x 2 hàng) */
+.gallery-wall .big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* Mặc định không có class gì thì là ảnh vuông nhỏ (1x1) */
+
+/* --- LIGHTBOX STYLES --- */
+.lightbox-overlay {
+    position: fixed;
+    z-index: 9999; /* Đảm bảo nằm trên tất cả mọi thứ */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Màu đen mờ 90% */
+    display: none; /* Mặc định ẩn */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Bấm ra ngoài để đóng */
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-overlay img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid #fff;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: default; /* Để người dùng biết bấm vào ảnh không tắt */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.lightbox-close:hover {
+    color: #bbb;
+}
+
+/* --- WRITING SCATTER STYLE (PHONG CÁCH RẢI RÁC) --- */
+
+/* 1. Khung chứa các tiêu đề bay (Đã sửa: writings) */
+#writings-list-container {
+    position: relative; /* Quan trọng để làm mốc toạ độ cho chữ bay */
+    width: 100%;
+    min-height: 80vh; 
+    overflow: hidden; 
+}
+
+/* 2. Các tiêu đề bài viết (Đã sửa: writings) */
+.writings-scatter-item {
+    position: absolute; /* Bay tự do */
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    font-size: 16px; 
+    color: #333;
+    transition: all 0.3s ease;
+    white-space: nowrap; 
+    z-index: 1;
+    padding: 5px;
+}
+
+/* Hover vào thì nổi lên */
+.writings-scatter-item:hover {
+    color: #0033cc;
+    z-index: 10; 
+    transform: scale(1.1); 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* --- MOBILE RESPONSIVE (ĐIỆN THOẠI) --- */
+@media (max-width: 768px) {
+    /* 1. Xếp chồng Sidebar lên trên, Nội dung xuống dưới */
+    .wrapper { 
+        flex-direction: column; 
+    }
+    
+    .sidebar { 
+        width: 100%; 
+        border-right: none; 
+        border-bottom: 1px solid #eee; 
+        padding: 20px; 
+        position: relative; 
+        height: auto;
+        /* Trên mobile, có thể cho sidebar cuộn gọn lại hoặc để nguyên tùy ý */
+    }
+    
+    .content { 
+        padding: 20px; 
+        width: 100%; /* Đảm bảo nội dung chiếm hết chiều ngang */
+    }
+
+    /* 2. Cấu hình khung bay cho Mobile */
+    #writings-list-container {
+        position: relative;
+        width: 100%;
+        height: 60vh; /* Chiều cao vùng bay trên điện thoại */
+        overflow: hidden; 
+        display: block; 
+    }
+    
+    /* 3. QUAN TRỌNG: Cho phép chữ bay tự do (Absolute) */
+    .writings-scatter-item {
+        position: absolute !important; /* Bắt buộc absolute để bay */
+        /* Không set top/left auto, để JS tự tính */
+        transform: none; 
+        font-size: 14px !important; /* Chữ to hơn chút cho dễ bấm */
+    }
+}
+
+/* --- SỬA LAYOUT TRANG WRITING (SPLIT VIEW) --- */
+
+/* 1. Trang chính (Đã sửa: cat-writings) */
+#cat-writings.active-section {
+    display: block; 
+    min-height: 100vh;
+    position: relative;
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/* 2. Khu vực Chữ bay - Top (Đã sửa: writings) */
+.writings-top-area {
+    position: relative;
+    width: 100%;
+    height: 90vh; /* Chiếm 60% màn hình */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 3. Container chữ bay (Đã sửa: writings) */
+#writings-list-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+/* Các tiêu đề text (Đã sửa: writings) */
+.writings-top-area .page-title,
+.writings-top-area .about-text {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+/* 4. Khu vực Đọc bài - Bottom (Đã sửa: writings) */
+#writings-detail-view {
+    padding: 40px 20px;
+    background: #fff;
+    position: relative;
+    z-index: 20; /* Nổi lên trên cùng */
+    animation: slideUp 0.5s ease;
+    display: none; /* Mặc định ẩn, JS sẽ bật lên */
+
+
+    /* --- THÊM 3 DÒNG NÀY ĐỂ CĂN GIỮA --- */
+    max-width: 800px !important; /* Giới hạn chiều rộng chuẩn đọc sách */
+    margin: 0 auto !important;   /* Tự động căn vào giữa màn hình */
+    width: 100%;
+
+
+
+}
+
+/* ... (Các code khác ở trên) ... */
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- MOBILE RESPONSIVE (DÁN XUỐNG CUỐI CÙNG) --- */
+@media (max-width: 768px) {
+    .wrapper { 
+        flex-direction: column; 
+    }
+    
+    .sidebar { 
+        width: 100%; 
+        border-right: none; 
+        border-bottom: 1px solid #eee; 
+        padding: 15px 20px; 
+        position: relative; 
+        height: auto;
+    }
+    
+    /* Hiện lại Copyright trên mobile */
+    .sidebar .copyright {
+        display: block !important; /* Bắt buộc hiện */
+        text-align: center;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+        margin-bottom: 0;
+    }
+
+    /* 2. Căn chỉnh nút ngôn ngữ (ĐÃ SỬA: GIỮA & TO X2) */
+    .sidebar .lang-switch {
+        display: block; 
+        
+        /* Đổi sang relative để nó tự nằm trên cùng và đẩy Logo xuống (không bị đè) */
+        position: relative; 
+        width: 100%;
+        text-align: center; /* Căn giữa */
+        
+        /* Reset các vị trí cũ */
+        top: auto; 
+        right: auto; 
+        
+        /* TĂNG KÍCH THƯỚC LÊN GẤP ĐÔI */
+        font-size: 12px; /* Cũ là 10px -> Mới 20px */
+        font-weight: bold;
+        letter-spacing: 4px; /* Tăng khoảng cách chữ cho thoáng đẹp */
+        
+        /* Tạo khoảng cách an toàn với Logo bên dưới */
+        margin-bottom: -10px; 
+        margin-top: 10px;
+        z-index: 20;
+    }
+    
+    /* Tăng kích thước dấu gạch ngang (-) ở giữa cho cân đối */
+    .sidebar .lang-switch .separator {
+        font-size: 18px; 
+        vertical-align: middle; /* Căn giữa theo chiều dọc */
+    }
+
+    .content { 
+        padding: 10px 15px; 
+        width: 100%; 
+        overflow-x: hidden;
+    }
+
+    #writings-list-container {
+        position: relative;
+        width: 100%;
+        height: 60vh; 
+        overflow: hidden; 
+        display: block; 
+    }
+    
+    /* QUAN TRỌNG: Cho phép chữ bay tự do */
+    .writings-scatter-item {
+        position: absolute !important; 
+        transform: none; 
+        font-size: 14px !important; 
+    }
+}
+
+
+
+
+
+
+
+/* ================================================================= */
+/* --- HỆ THỐNG HIỂN THỊ TEXT NHẠC (FINAL - HỢP NHẤT) --- */
+/* ================================================================= */
+
+/* 1. ĐỊNH DẠNG ẢNH CONTACT (Để ảnh nhỏ lại) */
+.contact-image-wrapper {
+    position: relative;
+    width: 350px; /* Kích thước chuẩn */
+    margin: 50px auto 0 auto;
+}
+.contact-image-wrapper img {
+    width: 100%; height: auto; display: block;
+    cursor: pointer; transition: opacity 0.3s;
+}
+
+/* 2. CẤU HÌNH VỊ TRÍ CHUNG CHO CHỮ */
+#play-hint, #pause-hint, #music-credit,
+#contact-play-hint, #contact-pause-hint, #contact-music-credit {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    text-decoration: none;
+    pointer-events: none; 
+    transition: opacity 0.3s ease;
+    z-index: 20;
+}
+
+/* Vị trí riêng Home */
+#home #play-hint, #home #pause-hint, #home #music-credit {
+    top: 50%;
+    margin-top: 120px; 
+}
+/* Vị trí riêng Contact */
+.contact-image-wrapper #contact-play-hint,
+.contact-image-wrapper #contact-pause-hint,
+.contact-image-wrapper #contact-music-credit {
+    bottom: -30px; 
+}
+
+/* 3. TRẠNG THÁI MẶC ĐỊNH (NHẠC ĐANG TẮT) */
+/* Hiện "Click to play" khi rê chuột */
+#play-hint, #contact-play-hint {
+    color: #666; opacity: 0; display: block;
+}
+.home-center-img:hover ~ #play-hint,
+.contact-image-wrapper:hover #contact-play-hint {
+    opacity: 1;
+}
+/* Các dòng khác ẩn */
+#pause-hint, #contact-pause-hint, #music-credit, #contact-music-credit {
+    display: none; 
+}
+
+/* 4. TRẠNG THÁI KHI NHẠC ĐANG BẬT (Có class .music-on) */
+
+/* Ẩn dòng Play */
+#home.music-on #play-hint,
+.contact-image-wrapper.music-on #contact-play-hint {
+    display: none !important;
+}
+
+/* Hiện dòng Tên bài hát (Mặc định) */
+#home.music-on #music-credit,
+.contact-image-wrapper.music-on #contact-music-credit {
+    display: block; color: #333; opacity: 0.9; pointer-events: auto;
+
+    /* --- THÊM HIỆU ỨNG SHADOW TỰ NHIÊN --- */
+    /* Cấu trúc: Ngang - Dọc - Độ nhòe - Màu */
+    text-shadow: 0 4px 10px rgba(255, 255, 255, 0.8), /* Lớp lót trắng sáng (halo) để tách nền */
+                 0 2px 5px rgba(0, 0, 0, 0.15);       /* Bóng đen mờ nhẹ tạo chiều sâu */
+}
+
+/* Dòng Pause (Chờ hover) */
+#home.music-on #pause-hint,
+.contact-image-wrapper.music-on #contact-pause-hint {
+    display: block; color: #000; opacity: 0;
+}
+
+
+/* ================================================= */
+/* --- HOME: HOVER LOGIC (DESKTOP / LAPTOP FIX) --- */
+/* ================================================= */
+
+/* Mặc định khi nhạc đang bật */
+#home.music-on #music-credit {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+#home.music-on #pause-hint {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Khi hover vào ảnh */
+#home.music-on .home-center-img:hover ~ #music-credit {
+    opacity: 0;
+}
+
+#home.music-on .home-center-img:hover ~ #pause-hint {
+    opacity: 1;
+}
+
+
+
+/* --- SỬA LẠI LOGIC CONTACT: CHỈ KHI RÊ VÀO ẢNH MỚI ĐỔI CHỮ --- */
+
+/* 1. Mặc định khi nhạc đang bật: */
+/* Hiện tên bài hát */
+.contact-image-wrapper.music-on #contact-music-credit {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+/* Ẩn dòng Click to pause */
+.contact-image-wrapper.music-on #contact-pause-hint {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 2. Khi rê chuột vào ẢNH (#musical-image) thì mới đảo trạng thái: */
+
+/* Ẩn tên bài hát */
+.contact-image-wrapper.music-on #musical-image:hover ~ #contact-music-credit {
+    opacity: 0;
+}
+
+/* Hiện dòng Click to pause */
+.contact-image-wrapper.music-on #musical-image:hover ~ #contact-pause-hint {
+    opacity: 1;
+}
+
+/* 5. MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .contact-image-wrapper { width: 80%; }
+    
+    /* Cấu hình chung vị trí text Home */
+    #home #play-hint, #home #pause-hint, #home #music-credit { 
+        margin-top: 120px; 
+        font-size: 10px; 
+    }
+    
+    /* --- KHI NHẠC TẮT: Chỉ hiện nút Play nhấp nháy --- */
+    #play-hint, #contact-play-hint { 
+        opacity: 0.6; 
+        animation: pulseText 2s infinite; 
+    }
+    
+    /* --- KHI NHẠC BẬT: HIỆN CẢ 2 DÒNG (Xếp chồng lên nhau) --- */
+    
+    /* 1. Tên bài hát: Giữ nguyên vị trí chuẩn */
+    #home.music-on #music-credit,
+    .contact-image-wrapper.music-on #contact-music-credit { 
+        opacity: 1 !important; 
+        display: block !important; 
+        z-index: 25; /* Nằm trên cùng */
+    }
+    
+    /* 2. Dòng Pause: Hiện nhỏ hơn, nằm dưới thấp VÀ NHẤP NHÁY */
+    #home.music-on #pause-hint {
+        display: block !important;
+        /* opacity sẽ do animation kiểm soát nên không cần set cứng nữa */
+        font-size: 9px !important;    
+        margin-top: 145px !important; /* Đẩy xuống thấp hơn dòng Credit */
+        
+        /* KÍCH HOẠT NHẤP NHÁY */
+        animation: pulseText 2s infinite !important; 
+    }
+
+    .contact-image-wrapper.music-on #contact-pause-hint {
+        display: block !important;
+        font-size: 9px !important;
+        bottom: -55px !important;     /* Đẩy xuống thấp hơn dòng Credit */
+        
+        /* KÍCH HOẠT NHẤP NHÁY */
+        animation: pulseText 2s infinite !important;
+    }
+}
+@keyframes pulseText { 0% { opacity: 0.4; } 50% { opacity: 0.8; } 100% { opacity: 0.4; } }
+
+
+
+/* --- FIX LỖI HẸP ĐÁY CHO TOÀN BỘ WEBSITE (MOBILE) --- */
+@media (max-width: 768px) {
+    /* 1. Tạo khoảng trắng lớn dưới đáy cho TẤT CẢ các trang (Trừ Home) */
+    .page-section:not(#home) {
+        padding-bottom: 100px !important; 
+    }
+
+    /* 2. Riêng trang Contact cần đẩy khung ảnh lên thêm chút */
+    .contact-image-wrapper {
+        margin-bottom: 60px !important; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================= */
+/* --- WRITING MUSIC PLAYER (FIXED LAYOUT & ALIGNMENT) --- */
+/* ================================================================= */
+
+/* 1. KHUNG BAO NGOÀI (Căn giữa Tiêu đề + Dòng nhắc + Player) */
+.writing-control-wrapper {
+    position: relative;
+    z-index: 50; /* Đảm bảo nổi hẳn lên trên chữ bay */
+    display: flex;
+    flex-direction: column; /* Xếp dọc */
+    align-items: center;    /* Căn giữa trục dọc */
+    justify-content: center; /* Căn giữa trục ngang */
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 20px; /* Cách xa các chữ bay một chút */
+    pointer-events: none; /* Để chuột xuyên qua vùng trống */
+    transition: all 0.3s ease;
+}
+
+/* Cho phép bấm vào các thành phần con */
+.writing-control-wrapper > * {
+    pointer-events: auto;
+}
+
+/* 2. TIÊU ĐỀ "WRITINGS" */
+.blink-title {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.3s ease;
+    /* Animation nhấp nháy */
+    animation: blinkAnim 2.5s infinite; 
+}
+
+@keyframes blinkAnim {
+    0%, 100% { opacity: 1; text-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    50% { opacity: 0.3; text-shadow: none; }
+}
+
+.blink-title.music-active {
+    
+    color: #0033cc;
+    opacity: 1;
+    text-shadow: 0 0 20px rgba(0, 51, 204, 0.2);
+}
+
+/* 3. DÒNG NHẮC NHỞ (Click for focus music) */
+.writing-hint-text {
+    display: block;
+    width: 100%;
+    text-align: center; /* Bắt buộc căn giữa */
+    font-size: 11px;
+    color: #888;
+    font-style: normal;
+    margin-top: 0;   /* Cách tiêu đề 5px */
+    margin-bottom: 0; /* Cách Player 15px */
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+
+.writing-hint-text.hidden {
+    opacity: 0;
+    height: 0; /* Thu gọn chiều cao */
+    margin: 0;
+    overflow: hidden; 
+    pointer-events: none;
+}
+
+/* 4. PANEL PHÁT NHẠC (Khôi phục thiết kế chuẩn) */
+.writing-player-panel {
+    /* Kích thước to hơn 20% (Khoảng 260px) */
+    width: 260px;
+    
+    /* Màu nền kính mờ (Đục hơn xíu để chữ không bị rối như hình 4) */
+    background: rgba(255, 255, 255, 0.85); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid rgba(0, 0, 0, 0.08); /* Viền xám nhạt để tách biệt */
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Bóng đổ tạo độ nổi */
+    
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Mặc định ẩn */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    margin: 0 auto; /* Căn giữa panel */
+}
+
+/* Trạng thái hiện */
+.writing-player-panel.visible {
+    max-height: 60px;
+    opacity: 1;
+    transform: translateY(0);
+    
+    /* THÊM: Margin top nhỏ để tách nhẹ khỏi Title khi Hint đã ẩn */
+    margin-top: 5px;
+}
+
+/* Trạng thái mở rộng playlist */
+.writing-player-panel.expanded {
+    max-height: 300px;
+    background: #fff; /* Khi mở ra thì nền trắng hẳn cho dễ đọc */
+}
+
+/* 5. GIAO DIỆN COMPACT (Hàng ngang chứa nút bấm) */
+.player-compact-view {
+    height: 60px;
+    display: flex; /* BẮT BUỘC CÓ ĐỂ CHIA CỘT */
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Thông tin bài hát bên trái */
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 55%;
+    overflow: hidden;
+}
+
+.wp-title { 
+    font-weight: 700; 
+    font-size: 13px; /* Chữ to hơn */
+    color: #111; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    display: block;
+    line-height: 1.3;
+}
+
+.wp-artist { 
+    font-size: 11px; 
+    color: #666; 
+    font-family: 'Courier New', Courier, monospace;
+    display: block;
+    line-height: 1.3;
+}
+
+/* Nút điều khiển bên phải */
+.track-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Khoảng cách giữa các nút */
+    flex-shrink: 0;
+}
+
+.track-controls button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: #222; /* Màu nút ĐEN để không bị tàng hình */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.1s;
+}
+
+.track-controls button:hover {
+    color: #0033cc;
+    background: rgba(0,0,0,0.03);
+    border-radius: 4px;
+}
+
+/* Icon SVG */
+.track-controls button svg {
+    width: 14px; /* Icon to hơn chút */
+    height: 14px;
+    fill: currentColor;
+    display: block;
+}
+
+/* 6. PLAYLIST (Danh sách sổ xuống) */
+.player-playlist-view {
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+    overflow-y: auto;
+    max-height: 240px;
+}
+
+.wp-playlist-item {
+    padding: 8px 15px;
+    font-size: 12px;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.2s;
+}
+
+.wp-playlist-item:hover {
+    background: #f5f5f5;
+    color: #000;
+}
+
+.wp-playlist-item.active {
+    color: #0033cc;
+    font-weight: bold;
+    background: rgba(0, 51, 204, 0.03);
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .writing-player-panel {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+
+
+
+
+
+
+/* 4. PANEL PHÁT NHẠC (HYPER TRANSPARENT - USER CUSTOM) */
+.writing-player-panel {
+    width: 260px;
+    
+    /* NỀN: Độ đục 10% (Rất trong) */
+    background: rgba(255, 255, 255, 0.10); 
+    
+    /* ĐỘ MỜ: 2px (Mờ rất nhẹ, nhìn xuyên thấu rõ ràng) */
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px); /* Đã sửa cho đồng bộ với bên trên */
+    
+    /* VIỀN: Mỏng và mờ */
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    
+    /* GÓC: Bo nhẹ 5px (Vuông vức, nam tính hơn) */
+    border-radius: 5px;
+    
+    /* BÓNG ĐỔ: Gần như không thấy */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03); 
+    
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    
+    /* Mặc định ẩn */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    margin: 0 auto;
+}
+
+/* TRẠNG THÁI HIỆN (COMPACT) */
+.writing-player-panel.visible {
+    max-height: 60px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* TRẠNG THÁI SỔ DANH SÁCH (EXPANDED) */
+.writing-player-panel.expanded {
+    max-height: 300px;
+    /* Khi mở danh sách thì tăng độ đục lên 35% để dễ đọc chữ hơn */
+    background: rgba(255, 255, 255, 0.35); 
+}
+
+/* 1. Khung chứa thông tin: Cho phép chiếm hết khoảng trống còn lại */
+.track-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    
+    /* THAY ĐỔI QUAN TRỌNG: */
+    flex: 1; /* Tự động chiếm hết không gian còn dư (thay vì cố định 55%) */
+    width: auto; 
+    margin-right: 5px; /* Tạo khoảng cách an toàn với nút bấm */
+    overflow: hidden;
+}
+
+/* 2. Tiêu đề bài hát/Album: Cho phép xuống dòng */
+.wp-title { 
+    font-weight: 700; 
+    font-size: 12px; 
+    color: #111; 
+    
+    /* THAY ĐỔI QUAN TRỌNG: Cho phép xuống dòng */
+    white-space: normal;  
+    line-height: 1.1; /* Khoảng cách dòng xít lại để 2 dòng vẫn đẹp */
+    
+    /* Tắt dấu 3 chấm (...) */
+    text-overflow: clip; 
+    
+    margin-bottom: 3px;
+    display: block;
+}
+
+/* Giữ nguyên phần thời gian */
+.wp-artist { 
+    font-size: 10px; 
+    color: #444; 
+    font-family: 'Courier New', Courier, monospace;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .writings-top-area {
+        height: 70vh; /* Trên điện thoại thì cao vừa phải thôi để dễ vuốt */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ================================================================= */
+/* --- MOBILE OPTIMIZATION (FIXED & IMPROVED) --- */
+/* ================================================================= */
+
+@media (max-width: 768px) {
+
+    /* 1. KHUNG CHÍNH (WRITING AREA) */
+    .writings-top-area {
+        /* Dùng chiều cao động để tránh bị thanh địa chỉ che mất */
+        height: 80vh; 
+        min-height: 500px; /* Đảm bảo không quá ngắn */
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Căn giữa Title theo chiều dọc */
+        align-items: center;
+        position: relative;
+        overflow: hidden; /* Cắt bỏ chữ bay ra ngoài */
+    }
+
+    /* 2. CHỮ BAY (PHYSICS ITEMS) - Đưa về làm nền */
+    #writings-list-container {
+        position: absolute !important; /* Bắt buộc đè lên vị trí absolute */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0; /* Nằm dưới cùng */
+        pointer-events: auto; /* Vẫn cho phép bấm vào chữ */
+    }
+
+    /* Chỉnh chữ bay nhỏ lại xíu trên mobile cho đỡ rối */
+    .writings-scatter-item {
+        font-size: 13px !important; 
+        opacity: 0.8 !important; /* Đậm hơn xíu để dễ đọc trên nền trắng */
+    }
+
+    /* 3. KHUNG ĐIỀU KHIỂN (TITLE + HINT) */
+    .writing-control-wrapper {
+        position: relative;
+        z-index: 50; /* Nổi lên trên chữ bay */
+        width: 100%;
+        margin-bottom: 0; /* Reset margin */
+        top: -10%; /* Nhích lên trên một chút cho thoáng mắt */
+    }
+
+    /* Tiêu đề Writings */
+    .blink-title {
+        font-size: 32px; /* Font to vừa phải trên mobile */
+    }
+
+    /* 4. PANEL NHẠC - CHUYỂN XUỐNG ĐÁY MÀN HÌNH (DOCK) */
+    .writing-player-panel {
+        position: fixed; /* Cố định vị trí so với màn hình */
+        bottom: 20px;    /* Cách đáy 20px */
+        left: 50%;
+        transform: translateX(-50%) translateY(150%); /* Mặc định ẩn xuống dưới đáy */
+        
+        width: 90%;      /* Rộng 90% màn hình */
+        max-width: 350px;
+        margin: 0;
+        
+        /* Tăng độ đục nền trên mobile để không bị lẫn vào nội dung khi cuộn */
+        background: rgba(255, 255, 255, 0.90); 
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        z-index: 9999; /* Luôn nằm trên cùng */
+        
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Hiệu ứng nảy nhẹ */
+    }
+
+    /* KHI HIỆN PANEL */
+    .writing-player-panel.visible {
+        /* Trượt từ dưới lên vị trí cũ */
+        transform: translateX(-50%) translateY(0); 
+        margin-top: 0;
+    }
+
+    /* KHI SỔ DANH SÁCH (Mở rộng lên trên) */
+    .writing-player-panel.expanded {
+        max-height: 50vh; /* Chiếm 50% màn hình tối đa */
+        bottom: 20px;
+    }
+    
+    /* Tinh chỉnh danh sách bài hát trên mobile cho dễ bấm */
+    .wp-playlist-item {
+        padding: 12px 15px; /* Ngón tay to nên cần padding lớn hơn */
+        font-size: 13px;
+    }
+    
+    /* 5. KHUNG CHI TIẾT BÀI VIẾT (Khi bấm vào đọc) */
+    #writings-detail-view {
+        padding-top: 60px; /* Tránh bị sidebar che mất nút Back */
+        padding-bottom: 100px; /* Chừa chỗ cho player ở đáy */
+    }
+}
+
+/* --- LOGIC MŨI TÊN (ARROW ROTATION) - ĐÃ SỬA --- */
+
+.expand-btn svg {
+    transition: transform 0.3s ease; /* Tạo chuyển động mượt */
+    transform-origin: center;        /* Xoay từ tâm */
+}
+
+/* 1. LAPTOP/PC: Panel sổ XUỐNG */
+/* Mặc định: Xoay 180 độ để mũi tên chỉ xuống (v) -> Gợi ý mở danh sách */
+.expand-btn svg {
+    transform: rotate(180deg);
+}
+
+/* Khi mở (Expanded): Xoay về 0 độ để mũi tên chỉ lên (^) -> Gợi ý đóng lại */
+.writing-player-panel.expanded .expand-btn svg {
+    transform: rotate(0deg);
+}
+
+/* 2. MOBILE: Panel sổ LÊN (Nằm ở đáy màn hình) */
+@media (max-width: 768px) {
+    /* Mặc định: Giữ nguyên 0 độ để mũi tên chỉ lên (^) -> Gợi ý mở lên */
+    .expand-btn svg {
+        transform: rotate(0deg);
+    }
+
+    /* Khi mở (Expanded): Xoay 180 độ để mũi tên chỉ xuống (v) -> Gợi ý đóng xuống */
+    .writing-player-panel.expanded .expand-btn svg {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ========================================================== */
+/* --- IPAD/TABLET: ÉP BUỘC NHẤP NHÁY (GIỐNG ĐIỆN THOẠI) --- */
+/* Phạm vi: Lớn hơn điện thoại (769px) nhưng nhỏ hơn Laptop lớn (1366px) */
+/* ========================================================== */
+
+@media (min-width: 769px) and (max-width: 1366px) {
+
+    /* --- 1. TRANG HOME --- */
+    
+    /* KHI NHẠC TẮT: "Click to play" */
+    #play-hint { 
+        display: block !important;
+        /* Dùng pulseText giống hệt mobile (chỉ thay đổi độ mờ) */
+        animation: pulseText 2s infinite !important; 
+    }
+
+    /* Fix lỗi dính hover: Kể cả khi chạm vào ảnh, vẫn bắt buộc nháy */
+    .home-center-img:hover ~ #play-hint {
+        opacity: 0.6 !important; /* Reset opacity để animation chạy đè lên */
+        animation: pulseText 2s infinite !important;
+    }
+
+    /* KHI NHẠC BẬT: "Click to pause" */
+    #home.music-on #pause-hint {
+        display: block !important;
+        font-size: 9px !important;    
+        margin-top: 155px !important; 
+        animation: pulseText 2s infinite !important; 
+    }
+    
+    /* Tên bài hát: Luôn hiện rõ (không nháy) */
+    #home.music-on #music-credit {
+        opacity: 1 !important;
+        display: block !important;
+    }
+
+
+    /* --- 2. TRANG CONTACT --- */
+
+    /* KHI NHẠC TẮT: "Click to play" */
+    #contact-play-hint { 
+        display: block !important;
+        animation: pulseText 2s infinite !important;
+    }
+    
+    /* Fix lỗi chạm vào ảnh contact bị dừng nháy */
+    .contact-image-wrapper:hover #contact-play-hint {
+        opacity: 0.6 !important;
+        animation: pulseText 2s infinite !important;
+    }
+
+    /* KHI NHẠC BẬT: "Click to pause" */
+    .contact-image-wrapper.music-on #contact-pause-hint {
+        display: block !important;
+        font-size: 9px !important;
+        bottom: -65px !important; 
+        animation: pulseText 2s infinite !important;
+    }
+
+    /* Tên bài hát Contact: Luôn hiện rõ */
+    .contact-image-wrapper.music-on #contact-music-credit { 
+        opacity: 1 !important; 
+        display: block !important; 
+    }
+    
+    /* Đẩy khung ảnh lên để chứa đủ chữ */
+    .contact-image-wrapper {
+        margin-bottom: 90px !important;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ========================================================== */
+/* --- CÔNG CỤ CHỈNH CỠ CHỮ (NEW LOGIC) --- */
+/* ========================================================== */
+
+.font-georgia { font-family: 'Georgia', serif; font-weight: bold; }
+
+/* ---------------------------------------------------------- */
+/* 1. GIAO DIỆN LAPTOP & TABLET (> 768px) */
+/* ---------------------------------------------------------- */
+@media (min-width: 769px) {
+    /* Ẩn bản mobile */
+    .mobile-text-tools { display: none; }
+
+    /* Cấu hình bản Desktop */
+    .desktop-text-tools {
+        position: fixed; /* Cố định trên màn hình, lướt web nó vẫn đứng yên */
+        top: 50%;
+        right: 40px;
+        transform: translateY(-50%);
+        display: flex;
+        flex-direction: column;
+        gap: 15px; /* Khoảng cách giữa 2 nút (như yêu cầu) */
+        z-index: 100;
+        
+        /* Hiệu ứng hiện ra từ từ */
+        opacity: 0; 
+        animation: fadeIn 0.5s ease 0.5s forwards;
+    }
+
+    .dt-btn {
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        background: transparent;
+        border: 1px solid #ddd;
+        color: #666;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 16px;
+    }
+
+    .dt-btn:hover {
+        border-color: #0033cc;
+        color: #0033cc;
+        transform: scale(1.1);
+    }
+}
+
+/* ---------------------------------------------------------- */
+/* 2. GIAO DIỆN ĐIỆN THOẠI (MOBILE) (<= 768px) */
+/* ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Ẩn bản Desktop */
+    .desktop-text-tools { display: none; }
+
+    /* Cấu hình bản Mobile */
+    .mobile-text-tools {
+        position: fixed; /* QUAN TRỌNG: Nổi trên mặt kính, text trôi bên dưới */
+        top: 20px;       /* Cách mép trên */
+        right: 20px;     /* Cách mép phải */
+        z-index: 9999;   /* Luôn nằm trên cùng */
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 40px;
+    }
+
+    /* Nút Chính (AA) */
+    .mt-toggle-btn {
+        width: 42px; height: 42px;
+        border-radius: 50%;
+        
+        /* Kính mờ xuyên thấu */
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        color: #222;
+        
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        z-index: 20; /* Nằm trên menu con */
+        transition: all 0.3s ease;
+    }
+
+    /* Menu Xổ Xuống (+ và -) */
+    .mt-dropdown {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 10px;
+        
+        /* Mặc định: Ẩn và thụt lên trên */
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+        pointer-events: none; /* Không bấm được khi ẩn */
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* Trạng thái MỞ (Có class .is-open) */
+    .mobile-text-tools.is-open .mt-dropdown {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+
+    /* Khi mở, nút AA đổi màu xanh */
+    .mobile-text-tools.is-open .mt-toggle-btn {
+        border-color: #0033cc;
+        color: #0033cc;
+        background: #fff;
+    }
+
+    /* Nút con (+ và -) */
+    .mt-action-btn {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid #eee;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        color: #444;
+        display: flex; align-items: center; justify-content: center;
+    }
+    
+    .mt-action-btn:active {
+        background: #f0f0f0;
+        transform: scale(0.9);
+    }
+}
+
+
+
+
+
+
+
+
+/* --- SỬA LỖI TRANG 404 --- */
+#not-found.active-section {
+    display: flex !important; /* Quan trọng: Ghi đè kiểu hiển thị mặc định */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px);
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- STYLE CREW: CĂN GIỮA CHUẨN XÁC --- */
+
+.crew-scroller-container {
+    width: 100%;
+    margin: 40px 0;
+    position: relative;
+    /* Đảm bảo container không bị tràn layout */
+    max-width: 100%; 
+}
+
+.crew-scroller {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 480px;
+    align-items: center;
+    
+    /* Logic Snap chuẩn */
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: auto;
+    
+    padding: 0; 
+    
+    /* Ẩn thanh cuộn */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    
+    /* Cấu hình chuột */
+    cursor: grab; 
+    user-select: none; /* Chặn bôi đen khi kéo */
+    -webkit-user-select: none;
+
+    /* Tăng tốc độ phản hồi trên Mobile */
+    -webkit-overflow-scrolling: touch;
+}
+
+.crew-scroller:active { cursor: grabbing; }
+.crew-scroller::-webkit-scrollbar { display: none; }
+
+.crew-card {
+    /* Desktop: 220px */
+    flex: 0 0 220px;
+    width: 220px;
+    margin: 0 15px; 
+    
+    /* Bắt buộc điểm giữa của thẻ phải khớp với điểm giữa màn hình */
+    scroll-snap-align: center;
+    scroll-snap-stop: normal;
+    
+    opacity: 0.5;
+    transform: scale(0.9);
+    filter: grayscale(100%);
+    transition: all 0.3s ease-out;
+    will-change: transform, opacity;
+    
+    /* Quan trọng: Để thẻ div nhận click, không bị img chặn */
+    position: relative;
+}
+
+/* CĂN GIỮA ITEM ĐẦU VÀ CUỐI (Logic toán học chuẩn) */
+.crew-card:first-child {
+    margin-left: calc(50% - 110px); 
+}
+.crew-card:last-child {
+    margin-right: calc(50% - 110px); 
+}
+
+.crew-card img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    /* Cho phép click xuyên qua ảnh để JS bắt sự kiện ở thẻ cha .crew-card */
+    pointer-events: none; 
+}
+
+/* Thông tin chữ */
+.crew-info {
+    margin-top: 20px;
+    text-align: center;
+    opacity: 0; 
+    transform: translateY(10px);
+    transition: all 0.4s ease;
+}
+
+.crew-role { 
+    font-size: 11px; color: #666; margin-bottom: 5px; 
+    text-transform: none; letter-spacing: 0.5px;
+}
+.crew-name { 
+    font-size: 15px; font-weight: bold; color: #000; text-transform: uppercase;
+}
+
+/* Trạng thái Active */
+.crew-card.active {
+    opacity: 1;
+    transform: scale(1.1); 
+    filter: grayscale(0%);
+    z-index: 10;
+}
+.crew-card.active .crew-info {
+    opacity: 1;
+    transform: translateY(0);
+}
+.crew-card.active img {
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .crew-scroller { height: 400px; }
+
+    .crew-card {
+        flex: 0 0 180px; 
+        width: 180px;
+        margin: 0 10px; 
+    }
+    
+    /* 50% màn hình - 90px (nửa chiều rộng thẻ mobile) */
+    .crew-card:first-child { margin-left: calc(50% - 90px); }
+    .crew-card:last-child { margin-right: calc(50% - 90px); }
+    
+    .crew-info { opacity: 0.3; margin-top: 15px; }
+    .crew-card.active .crew-info { opacity: 1; }
+    .crew-name { font-size: 14px; }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- BỔ SUNG LIGHTBOX STYLES (NAV & CAPTION) - ĐÃ FIX 3:4 RATIO --- */
+
+/* 1. Căn chỉnh vị trí nội dung (WRAPPER) */
+.lb-content-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Xếp dọc: Ảnh trên, Chữ dưới */
+    align-items: center;    /* Căn giữa ngang */
+    justify-content: center; /* Căn giữa dọc */
+    
+    /* Giới hạn khung bao để không bao giờ tràn màn hình */
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Để click xuyên qua vùng trống đóng lightbox */
+}
+
+/* 2. Ảnh bên trong Wrapper (Logic 3:4 Chuẩn) */
+.lb-content-wrapper img {
+    pointer-events: auto; /* Bật lại click cho ảnh */
+    display: block;
+    
+    /* --- LOGIC TỈ LỆ 3:4 (QUAN TRỌNG) --- */
+   /* aspect-ratio: 3 / 4;  /* Bắt buộc khung ảnh luôn là hình chữ nhật đứng 3:4 */
+   /* object-fit: cover;    /* Cắt ảnh gọn gàng vào khung 3:4 mà không bị méo */
+    
+    /* --- KÍCH THƯỚC TRÊN DESKTOP --- */
+    /* Chiều cao max 75% màn hình để chừa 25% cho chữ bên dưới */
+    max-height: 65vh;
+    height: auto;
+    width: auto; /* Chiều rộng tự tính theo tỉ lệ 3:4 */
+    
+    /* Đảm bảo chiều rộng không bao giờ quá to (dành cho màn hình ngang siêu rộng) */
+    max-width: 90vw; 
+    
+    margin: 0 auto;
+    border-radius: 4px; /* Bo góc nhẹ cho giống Crew Card bên ngoài */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5); 
+    border: 2px solid #fff;
+}
+
+/* 3. Phần chú thích (Tên & Vai trò) */
+.lb-caption {
+    margin-top: 15px; /* Cách ảnh một đoạn */
+    text-align: center;
+    color: #fff;
+    animation: fadeIn 0.5s ease;
+    pointer-events: auto;
+    
+    /* Đảm bảo chữ luôn nằm gọn dưới ảnh */
+    width: 100%;
+    max-width: 600px; 
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.lb-caption h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+.lb-caption p {
+    font-size: 14px;
+    font-family: 'Georgia', serif; 
+    color: #ddd; 
+    font-style: italic;
+}
+
+/* 4. Nút điều hướng (Mũi tên trái phải) */
+.lb-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4); 
+    font-size: 50px; 
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10000;
+    user-select: none;
+    outline: none;
+}
+
+.lb-nav-btn:hover {
+    color: #fff; 
+    transform: translateY(-50%) scale(1.1); 
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+#lb-prev { left: 30px; }
+#lb-next { right: 30px; }
+
+/* --- MOBILE RESPONSIVE (ĐIỆN THOẠI) --- */
+@media (max-width: 768px) {
+    /* --- TỐI ƯU CHO ĐIỆN THOẠI --- */
+    .lb-content-wrapper img {
+        /* Giảm chiều cao xuống còn 60% màn hình để không bị che bởi thanh địa chỉ */
+        height: auto;
+        max-height: 60vh;
+        
+        /* Giới hạn chiều rộng để không chạm mép màn hình điện thoại */
+        max-width: 85vw; 
+    }
+
+    .lb-caption { margin-top: 15px; }
+    .lb-caption h3 { font-size: 16px; margin-bottom: 2px; }
+    .lb-caption p { font-size: 13px; }
+
+    /* Nút bấm nhỏ lại và có nền mờ để dễ thấy trên ảnh */
+    .lb-nav-btn {
+        font-size: 24px;
+        padding: 0;
+        width: 40px; height: 40px;
+        background: rgba(0,0,0,0.3);
+        border-radius: 50%;
+        display: flex; align-items: center; justify-content: center;
+    }
+    
+    #lb-prev { left: 10px; }
+    #lb-next { right: 10px; }
+}
+
+
+
+
+
+
+
