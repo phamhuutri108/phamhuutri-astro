@@ -5,54 +5,180 @@ paths:
   uploads: public/uploads
 
 collections_config:
+
+  # ──────────────────────────────────────────────
+  # SHORT FILMS
+  # Cấu trúc: info, trailer_url, logline, statement, soundtrack_url, crew
+  # ──────────────────────────────────────────────
   short_films:
     path: src/content/short-films
     output: false
     name: Short Films
     icon: movie
     _inputs:
-      vi:
-        type: html
-        label: "Nội dung (Tiếng Việt)"
-      en:
-        type: html
-        label: "Content (English)"
+      title:
+        type: object
+        label: "Tiêu đề / Title"
+      title[vi]:
+        type: text
+        label: "Tiêu đề (Tiếng Việt)"
+      title[en]:
+        type: text
+        label: "Title (English)"
       thumbnail:
         type: image
         label: Thumbnail
+      info:
+        type: object
+        label: "Thông tin phim / Film Info"
+      info[vi]:
+        type: html
+        label: "Thông tin (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      info[en]:
+        type: html
+        label: "Info (English)"
+        options:
+          allow_custom_markup: true
+      trailer_url:
+        type: text
+        label: "Trailer URL (YouTube Embed)"
+        comment: "Dán URL dạng: https://www.youtube.com/embed/VIDEO_ID"
+      logline:
+        type: object
+        label: "Logline"
+      logline[vi]:
+        type: html
+        label: "Logline (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      logline[en]:
+        type: html
+        label: "Logline (English)"
+        options:
+          allow_custom_markup: true
+      statement:
+        type: object
+        label: "Director's Statement"
+      statement[vi]:
+        type: html
+        label: "Director's Statement (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      statement[en]:
+        type: html
+        label: "Director's Statement (English)"
+        options:
+          allow_custom_markup: true
+      soundtrack_url:
+        type: text
+        label: "Soundtrack URL (SoundCloud Embed)"
+        comment: "Dán URL iframe SoundCloud embed"
+      crew:
+        type: object
+        label: "Crew / Ê-kíp"
+      crew[vi]:
+        type: html
+        label: "Crew (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      crew[en]:
+        type: html
+        label: "Crew (English)"
+        options:
+          allow_custom_markup: true
 
+  # ──────────────────────────────────────────────
+  # COMMERCIALS
+  # Cấu trúc: info, video_url, description
+  # ──────────────────────────────────────────────
   commercials:
     path: src/content/commercials
     output: false
     name: Commercials
     icon: videocam
     _inputs:
-      vi:
-        type: html
-        label: "Nội dung (Tiếng Việt)"
-      en:
-        type: html
-        label: "Content (English)"
+      title:
+        type: object
+        label: "Tiêu đề / Title"
+      title[vi]:
+        type: text
+        label: "Tiêu đề (Tiếng Việt)"
+      title[en]:
+        type: text
+        label: "Title (English)"
       thumbnail:
         type: image
         label: Thumbnail
+      info:
+        type: object
+        label: "Thông tin / Info"
+      info[vi]:
+        type: html
+        label: "Thông tin (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      info[en]:
+        type: html
+        label: "Info (English)"
+        options:
+          allow_custom_markup: true
+      video_url:
+        type: text
+        label: "Video URL (YouTube Embed)"
+        comment: "Dán URL dạng: https://www.youtube.com/embed/VIDEO_ID"
+      description:
+        type: object
+        label: "Mô tả vai trò / Role Description"
+      description[vi]:
+        type: html
+        label: "Mô tả vai trò (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      description[en]:
+        type: html
+        label: "Role Description (English)"
+        options:
+          allow_custom_markup: true
 
+  # ──────────────────────────────────────────────
+  # OTHERS
+  # Giữ nguyên vi/en (nội dung phức tạp: gallery, video, JS custom)
+  # ──────────────────────────────────────────────
   others:
     path: src/content/others
     output: false
     name: Others
     icon: folder
     _inputs:
-      vi:
-        type: html
-        label: "Nội dung (Tiếng Việt)"
-      en:
-        type: html
-        label: "Content (English)"
+      title:
+        type: object
+        label: "Tiêu đề / Title"
+      title[vi]:
+        type: text
+        label: "Tiêu đề (Tiếng Việt)"
+      title[en]:
+        type: text
+        label: "Title (English)"
       thumbnail:
         type: image
         label: Thumbnail
+      vi:
+        type: html
+        label: "Nội dung (Tiếng Việt)"
+        options:
+          allow_custom_markup: true
+      en:
+        type: html
+        label: "Content (English)"
+        options:
+          allow_custom_markup: true
 
+  # ──────────────────────────────────────────────
+  # WRITINGS
+  # Cấu trúc: id, date, location, title, content.vi, content.en
+  # ──────────────────────────────────────────────
   writings:
     path: src/content/writings
     output: false
@@ -65,9 +191,25 @@ collections_config:
       location:
         type: text
         label: "Địa điểm"
-      vi:
+      title:
+        type: object
+        label: "Tiêu đề / Title"
+      title[vi]:
+        type: text
+        label: "Tiêu đề (Tiếng Việt)"
+      title[en]:
+        type: text
+        label: "Title (English)"
+      content:
+        type: object
+        label: "Nội dung / Content"
+      content[vi]:
         type: html
         label: "Nội dung (Tiếng Việt)"
-      en:
+        options:
+          allow_custom_markup: true
+      content[en]:
         type: html
         label: "Content (English)"
+        options:
+          allow_custom_markup: true

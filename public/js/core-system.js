@@ -33,14 +33,80 @@ function renderSectionContent(id) {
     section.className = 'page-section';
 
     // 1. Tạo nội dung chính (Text & Video)
+    let bodyHtml = '';
+
+    if (item.info || item.logline || item.description) {
+        // ── CẤU TRÚC MỚI: Short Films / Commercials ──
+
+        // Info paragraph
+        if (item.info) {
+            bodyHtml += `<div class="content-vi">${item.info.vi || ''}</div>
+            <div class="content-en">${item.info.en || ''}</div>`;
+        }
+
+        // Trailer / Video embed
+        const videoUrl = item.trailer_url || item.video_url || '';
+        if (videoUrl) {
+            bodyHtml += `<div style="text-align: left; margin: 30px 0;">
+                <iframe width="100%" height="315" style="max-width: 560px; border-radius: 4px;"
+                    src="${videoUrl}" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>`;
+        }
+
+        // Logline (Short Films)
+        if (item.logline) {
+            bodyHtml += `<h3>Logline</h3>
+            <div class="content-vi">${item.logline.vi || ''}</div>
+            <div class="content-en">${item.logline.en || ''}</div>`;
+        }
+
+        // Director's Statement (Short Films)
+        if (item.statement) {
+            bodyHtml += `<h3>Director\u2019s Statement</h3>
+            <div class="content-vi">${item.statement.vi || ''}</div>
+            <div class="content-en">${item.statement.en || ''}</div>`;
+        }
+
+        // Role Description (Commercials)
+        if (item.description) {
+            bodyHtml += `<h3><span class="content-vi">M\u00f4 t\u1ea3 vai tr\u00f2</span><span class="content-en">Role Description</span></h3>
+            <div class="content-vi">${item.description.vi || ''}</div>
+            <div class="content-en">${item.description.en || ''}</div>`;
+        }
+
+        // Soundtrack (Short Films)
+        if (item.soundtrack_url) {
+            bodyHtml += `<h3><span class="content-vi">Nh\u1ea1c phim</span><span class="content-en">Soundtrack</span></h3>
+            <div style="max-width: 560px; margin-top: 15px;">
+                <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay"
+                    src="${item.soundtrack_url}"></iframe>
+            </div>`;
+        }
+
+        // Crew text list (Short Films)
+        if (item.crew) {
+            bodyHtml += `<h3>Crew</h3>
+            <div class="content-vi">${item.crew.vi || ''}</div>
+            <div class="content-en">${item.crew.en || ''}</div>`;
+        }
+
+    } else {
+        // ── CẤU TRÚC CŨ: Others (vi/en blob) ──
+        const viContent = item.vi || (item.content && item.content.vi) || '';
+        const enContent = item.en || (item.content && item.content.en) || '';
+        bodyHtml += `<div class="content-vi">${viContent}</div>
+        <div class="content-en">${enContent}</div>`;
+    }
+
     let htmlContent = `
         <h2 class="page-title">
             <span class="content-en">${item.title.en}</span>
             <span class="content-vi">${item.title.vi}</span>
         </h2>
         <div class="about-text">
-            <div class="content-vi">${item.vi}</div>
-            <div class="content-en">${item.en}</div>
+            ${bodyHtml}
         </div>
     `;
 
