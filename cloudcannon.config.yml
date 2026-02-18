@@ -1,9 +1,22 @@
-source: ''
 paths:
   data: src/data
   static: public
   uploads: public/uploads
-
+collections_config:
+  data:
+    path: src/data
+    icon: data_usage
+    disable_url: true
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
+  pages:
+    path: src/pages
+    icon: wysiwyg
+    disable_url: false
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 data_config:
   films:
     path: src/data/films.json
@@ -13,3 +26,4 @@ data_config:
     path: src/data/others.json
   writings:
     path: src/data/writings.json
+timezone: Etc/UTC
