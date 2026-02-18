@@ -10,8 +10,6 @@
   "country": "Vietnam",
   "role_vi": "Trợ lý cá nhân Đạo diễn",
   "role_en": "Director's Assistant",
-  "description": {
-    "vi": "<p>Trợ lý cá nhân cho Đạo diễn, hỗ trợ đạo diễn phát triển ý tưởng và chuẩn bị nội dung sáng tạo cho dự án để thuyết trình với khách hàng. Tham gia chỉnh sửa nội dung sáng tạo phù hợp với yêu cầu của khách hàng về nội dung và tầm nhìn sáng của đạo diễn.</p>",
-    "en": "<p>Personal Assistant to the Director, supporting the development of ideas and preparation of creative content for the project to present to clients. Participated in editing creative content according to client requirements regarding content and the director's vision.</p>"
-  }
+  "description_vi": "<p>Trợ lý cá nhân cho Đạo diễn, hỗ trợ đạo diễn phát triển ý tưởng và chuẩn bị nội dung sáng tạo cho dự án để thuyết trình với khách hàng. Tham gia chỉnh sửa nội dung sáng tạo phù hợp với yêu cầu của khách hàng về nội dung và tầm nhìn sáng của đạo diễn.</p>",
+  "description_en": "<p>Personal Assistant to the Director, supporting the development of ideas and preparation of creative content for the project to present to clients. Participated in editing creative content according to client requirements regarding content and the director's vision.</p>"
 }

@@ -96,25 +96,25 @@ function renderSectionContent(id) {
             </div>`;
         }
 
-        // Logline (Short Films)
-        if (item.logline) {
+        // Logline (Short Films) — flat fields: logline_vi, logline_en
+        if (item.logline_vi || item.logline_en) {
             bodyHtml += `<h3>Logline</h3>
-            <div class="content-vi">${item.logline.vi || ''}</div>
-            <div class="content-en">${item.logline.en || ''}</div>`;
+            <div class="content-vi">${item.logline_vi || ''}</div>
+            <div class="content-en">${item.logline_en || ''}</div>`;
         }
 
-        // Director's Statement (Short Films)
-        if (item.statement) {
+        // Director's Statement (Short Films) — flat fields: statement_vi, statement_en
+        if (item.statement_vi || item.statement_en) {
             bodyHtml += `<h3>Director\u2019s Statement</h3>
-            <div class="content-vi">${item.statement.vi || ''}</div>
-            <div class="content-en">${item.statement.en || ''}</div>`;
+            <div class="content-vi">${item.statement_vi || ''}</div>
+            <div class="content-en">${item.statement_en || ''}</div>`;
         }
 
-        // Role Description (Commercials)
-        if (item.description) {
+        // Role Description (Commercials) — flat fields: description_vi, description_en
+        if (item.description_vi || item.description_en) {
             bodyHtml += `<h3><span class="content-vi">M\u00f4 t\u1ea3 vai tr\u00f2</span><span class="content-en">Role Description</span></h3>
-            <div class="content-vi">${item.description.vi || ''}</div>
-            <div class="content-en">${item.description.en || ''}</div>`;
+            <div class="content-vi">${item.description_vi || ''}</div>
+            <div class="content-en">${item.description_en || ''}</div>`;
         }
 
         // Soundtrack (Short Films)
@@ -126,17 +126,17 @@ function renderSectionContent(id) {
             </div>`;
         }
 
-        // Crew text list (Short Films)
-        if (item.crew) {
+        // Crew text list (Short Films) — flat fields: crew_vi, crew_en
+        if (item.crew_vi || item.crew_en) {
             bodyHtml += `<h3>Crew</h3>
-            <div class="content-vi">${item.crew.vi || ''}</div>
-            <div class="content-en">${item.crew.en || ''}</div>`;
+            <div class="content-vi">${item.crew_vi || ''}</div>
+            <div class="content-en">${item.crew_en || ''}</div>`;
         }
 
     } else {
-        // ── CẤU TRÚC CŨ: Others (vi/en blob) ──
-        const viContent = item.vi || (item.content && item.content.vi) || '';
-        const enContent = item.en || (item.content && item.content.en) || '';
+        // ── CẤU TRÚC CŨ: Others (vi/en blob) and Writings (content_vi/content_en) ──
+        const viContent = item.vi || item.content_vi || '';
+        const enContent = item.en || item.content_en || '';
         bodyHtml += `<div class="content-vi">${viContent}</div>
         <div class="content-en">${enContent}</div>`;
     }

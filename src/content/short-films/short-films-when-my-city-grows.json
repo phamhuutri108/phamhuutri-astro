@@ -11,8 +11,6 @@
   "awards_vi": "Giải nhì, Le Filmmaking Camp: Spectrum, Quảng Trị",
   "awards_en": "Second Prize, Le Filmmaking Camp: Spectrum, Quang Tri",
   "trailer_url": "https://www.youtube.com/embed/9qh9bCoNitI",
-  "crew": {
-    "vi": "",
-    "en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Filmming and Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Screenwriter:</b> Quốc Vinh</li>\n                <li><b>Producer:</b> Hải Yến</li>\n                <li><b>Assistant Directors:</b> Việt Hà, Công Thoại</li>\n                <li><b>Script Assistants:</b> Thanh Lam, Hoa Diệu</li>\n            </ul>"
-  }
+  "crew_vi": "",
+  "crew_en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Filmming and Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Screenwriter:</b> Quốc Vinh</li>\n                <li><b>Producer:</b> Hải Yến</li>\n                <li><b>Assistant Directors:</b> Việt Hà, Công Thoại</li>\n                <li><b>Script Assistants:</b> Thanh Lam, Hoa Diệu</li>\n            </ul>"
 }

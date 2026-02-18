@@ -11,8 +11,6 @@
   "role_vi": "Trợ lý Đạo diễn #1",
   "role_en": "First Assistant Director",
   "video_url": "https://www.youtube.com/embed/uyr9QphU2ew",
-  "description": {
-    "vi": "<p>Lên kế hoạch, điều phối các department hoàn thành công việc chuyên môn theo yêu cầu của dự án. Breakdown kịch bản, nắm bắt Shotlist, sắp xếp Shooting schedule, Callsheet đảm bảo đúng tiến độ quay.</p>",
-    "en": "<p>Planning and coordinating departments to complete professional tasks according to project requirements. Script breakdown, mastering the Shotlist, arranging the Shooting schedule and Callsheets to ensure filming progress.</p>"
-  }
+  "description_vi": "<p>Lên kế hoạch, điều phối các department hoàn thành công việc chuyên môn theo yêu cầu của dự án. Breakdown kịch bản, nắm bắt Shotlist, sắp xếp Shooting schedule, Callsheet đảm bảo đúng tiến độ quay.</p>",
+  "description_en": "<p>Planning and coordinating departments to complete professional tasks according to project requirements. Script breakdown, mastering the Shotlist, arranging the Shooting schedule and Callsheets to ensure filming progress.</p>"
 }

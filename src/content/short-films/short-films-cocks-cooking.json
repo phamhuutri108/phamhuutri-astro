@@ -9,8 +9,6 @@
   "year": "2023",
   "duration": "06:45",
   "trailer_url": "https://www.youtube.com/embed/nOfecnBi0bM",
-  "crew": {
-    "vi": "<ul class=\"crew-text-list\">\n                <li><b>Đạo diễn, Kịch bản và Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Diễn viên:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>",
-    "en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Screenwriter & Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Cast:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>"
-  }
+  "crew_vi": "<ul class=\"crew-text-list\">\n                <li><b>Đạo diễn, Kịch bản và Dựng phim:</b> Phạm Hữu Trí</li>\n                <li><b>Diễn viên:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>",
+  "crew_en": "<ul class=\"crew-text-list\">\n                <li><b>Director, Screenwriter & Editor:</b> Phạm Hữu Trí</li>\n                <li><b>Cast:</b> Võ Nguyễn Đạt Kha</li>\n            </ul>"
 }

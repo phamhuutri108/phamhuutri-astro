@@ -6,8 +6,6 @@
     "vi": "there was nothing here.",
     "en": "there was nothing here."
   },
-  "content": {
-    "vi": "\n<p>there was nothing here.</p>\n            <p>no being, no emptiness.</p>\n            <p>no space, no time.</p>\n            <p>there was no light to be seen for</p>\n            <p>no darkness to be found.</p>\n            <p>no good and no evil.</p>\n            <p>no life, no death.</p>\n            <p>no me, no you, no one.</p>\n            <p>there was no reason to exist, and</p>\n            <p>there was no non-existent one.</p>\n            <p>no.</p>\n",
-    "en": "\n<p>there was nothing here.</p>\n            <p>no being, no emptiness.</p>\n            <p>no space, no time.</p>\n            <p>there was no light to be seen for</p>\n            <p>no darkness to be found.</p>\n            <p>no good and no evil.</p>\n            <p>no life, no death.</p>\n            <p>no me, no you, no one.</p>\n            <p>there was no reason to exist, and</p>\n            <p>there was no non-existent one.</p>\n            <p>no.</p>\n"
-  }
+  "content_vi": "\n<p>there was nothing here.</p>\n            <p>no being, no emptiness.</p>\n            <p>no space, no time.</p>\n            <p>there was no light to be seen for</p>\n            <p>no darkness to be found.</p>\n            <p>no good and no evil.</p>\n            <p>no life, no death.</p>\n            <p>no me, no you, no one.</p>\n            <p>there was no reason to exist, and</p>\n            <p>there was no non-existent one.</p>\n            <p>no.</p>\n",
+  "content_en": "\n<p>there was nothing here.</p>\n            <p>no being, no emptiness.</p>\n            <p>no space, no time.</p>\n            <p>there was no light to be seen for</p>\n            <p>no darkness to be found.</p>\n            <p>no good and no evil.</p>\n            <p>no life, no death.</p>\n            <p>no me, no you, no one.</p>\n            <p>there was no reason to exist, and</p>\n            <p>there was no non-existent one.</p>\n            <p>no.</p>\n"
 }
